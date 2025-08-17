@@ -241,4 +241,250 @@
 <meta name="description" content="Assista canais, filmes e séries com estabilidade e qualidade. Planos de IPTV com suporte dedicado - Jhon Tech IPTV.">
 <meta name="keywords" content="IPTV, canais, filmes, séries, streaming, Jhon Tech">
 <meta name="author" content="Jhon Tech IPTV">
-  </html>
+ <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Jhon Tech</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    :root {
+      --primary: #00ffcc; /* cor neon principal */
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #fff;
+      text-align: center;
+    }
+
+    /* HERO */
+    #hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #000 40%, #111 100%);
+      padding: 40px;
+    }
+    #typing-hero {
+      font-size: 2.2rem;
+      font-family: monospace;
+      color: var(--primary);
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 3px solid var(--primary);
+      display: inline-block;
+      animation: blink 0.8s infinite;
+    }
+
+    /* Depoimentos */
+    #depoimentos {
+      background:#000;
+      padding:60px 20px;
+      text-align:center;
+    }
+    #typing-title {
+      color:var(--primary);
+      margin-bottom:30px;
+      font-family:monospace;
+      white-space:nowrap;
+      overflow:hidden;
+      border-right:3px solid var(--primary);
+      display:inline-block;
+      animation: blink 0.8s infinite;
+    }
+    .carousel-container {
+      position:relative;
+      max-width:900px;
+      margin:0 auto;
+      overflow:hidden;
+    }
+    .carousel {
+      position:relative;
+      height:300px;
+    }
+    .card {
+      position:absolute;
+      top:0;
+      left:0;
+      width:100%;
+      opacity:0;
+      transition:opacity 1s ease;
+    }
+    .avatar {
+      width:80px;
+      height:80px;
+      border-radius:50%;
+      margin-bottom:15px;
+      transform: scale(0.9);
+      transition: transform 1s ease;
+    }
+    .fade-slide[style*="opacity: 1"] .avatar {
+      transform: scale(1);
+    }
+
+    /* Botões */
+    #prev, #next {
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      background:var(--primary);
+      border:none;
+      padding:10px;
+      border-radius:50%;
+      cursor:pointer;
+    }
+    #prev { left:10px; }
+    #next { right:10px; }
+
+    /* Indicadores */
+    #indicators {
+      display:flex;
+      justify-content:center;
+      gap:10px;
+      margin-top:20px;
+    }
+    .dot {
+      width:12px;
+      height:12px;
+      border-radius:50%;
+      background:#444;
+      display:inline-block;
+      cursor:pointer;
+    }
+    .dot.active {
+      background:var(--primary);
+    }
+
+    /* Cursor piscando */
+    @keyframes blink {
+      0%, 100% { border-color: transparent; }
+      50% { border-color: var(--primary); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section id="hero">
+    <h1 id="typing-hero"></h1>
+    <p style="margin-top:20px; color:#ccc;">A melhor experiência em IPTV 🔥</p>
+  </section>
+
+  <!-- Depoimentos -->
+  <section id="depoimentos">
+    <h2 id="typing-title"></h2>
+    
+    <div class="carousel-container">
+      <div class="carousel">
+
+        <!-- Depoimento 1 -->
+        <div class="card fade-slide" style="opacity:1;">
+          <img class="avatar" src="https://i.ibb.co/5MkXJgP/user1.jpg" alt="Cliente satisfeito" loading="lazy">
+          <h3 style="color:var(--primary); margin-bottom:10px;">Maria S.</h3>
+          <p style="color:#ccc;">“Estou usando há 6 meses e nunca travou! Atendimento super rápido. Recomendo demais.”</p>
+        </div>
+
+        <!-- Depoimento 2 -->
+        <div class="card fade-slide">
+          <img class="avatar" src="https://i.ibb.co/9T9J1Fk/user2.jpg" alt="Cliente satisfeito" loading="lazy">
+          <h3 style="color:var(--primary); margin-bottom:10px;">João P.</h3>
+          <p style="color:#ccc;">“Canais em ótima qualidade e filmes sempre atualizados. Melhor IPTV que já assinei.”</p>
+        </div>
+
+        <!-- Depoimento 3 -->
+        <div class="card fade-slide">
+          <img class="avatar" src="https://i.ibb.co/0FBVZbW/user3.jpg" alt="Cliente satisfeito" loading="lazy">
+          <h3 style="color:var(--primary); margin-bottom:10px;">Carlos A.</h3>
+          <p style="color:#ccc;">“Vale cada centavo! Atendimento via WhatsApp sempre atencioso e rápido.”</p>
+        </div>
+
+      </div>
+
+      <!-- Botões -->
+      <button id="prev" aria-label="Anterior">⬅</button>
+      <button id="next" aria-label="Próximo">➡</button>
+
+      <!-- Indicadores -->
+      <div id="indicators">
+        <span class="dot active" data-index="0"></span>
+        <span class="dot" data-index="1"></span>
+        <span class="dot" data-index="2"></span>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Texto do HERO
+    const heroText = "🚀 Bem-vindo à Jhon Tech";
+    let j = 0;
+    const heroEl = document.getElementById("typing-hero");
+
+    function typeHero() {
+      if (j < heroText.length) {
+        heroEl.textContent += heroText.charAt(j);
+        j++;
+        setTimeout(typeHero, 100);
+      }
+    }
+    typeHero();
+
+    // Texto do título de depoimentos
+    const title = "💬 O que nossos clientes dizem";
+    let i = 0;
+    const typingElement = document.getElementById("typing-title");
+
+    function typeWriter() {
+      if (i < title.length) {
+        typingElement.textContent += title.charAt(i);
+        i++;
+        setTimeout(typeWriter, 80);
+      }
+    }
+    typeWriter();
+
+    // Carrossel
+    const slides = document.querySelectorAll('.fade-slide');
+    const prev = document.getElementById('prev');
+    const next = document.getElementById('next');
+    const dots = document.querySelectorAll('.dot');
+    let index = 0;
+    const total = slides.length;
+
+    function showSlide(i) {
+      index = (i + total) % total;
+      slides.forEach((slide, idx) => {
+        slide.style.opacity = idx === index ? '1' : '0';
+      });
+      updateDots();
+    }
+
+    function updateDots() {
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+      });
+    }
+
+    next.addEventListener('click', () => showSlide(index + 1));
+    prev.addEventListener('click', () => showSlide(index - 1));
+
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        showSlide(parseInt(dot.dataset.index));
+      });
+    });
+
+    setInterval(() => {
+      showSlide(index + 1);
+    }, 5000);
+
+    showSlide(0);
+  </script>
+</body>
+</html>
+

@@ -1,317 +1,545 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Jhon Tech IPTV — O Futuro do Streaming</title>
+  <meta name="description" content="Canais, filmes e séries com estabilidade e qualidade premium. Planos flexíveis, suporte rápido e acesso imediato via WhatsApp." />
+  <meta name="theme-color" content="#22d3ee" />
 
-  <!-- Fonte futurista -->
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap" rel="stylesheet">
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Jhon Tech IPTV — O Futuro do Streaming" />
+  <meta property="og:description" content="Assista com qualidade e estabilidade. Planos acessíveis e suporte imediato." />
+  <meta property="og:image" content="logo-jhon-tech.webp" />
+  <meta property="og:type" content="website" />
+  $1
 
-  <!-- Ícones -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Meta Pixel (preencha META_PIXEL_ID para ativar) -->
+  <script>
+    const META_PIXEL_ID = ""; // ex: '123456789012345'
+    if (META_PIXEL_ID) {
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+      document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', META_PIXEL_ID); fbq('track', 'PageView');
+    }
+  </script>
 
-  <!-- SEO e compartilhamento -->
-  <meta name="description" content="Jhon Tech IPTV — Assista canais, filmes e séries com estabilidade e qualidade premium. Planos acessíveis e suporte imediato.">
-  <meta property="og:title" content="Jhon Tech IPTV — O Futuro do Streaming">
-  <meta property="og:description" content="Assista canais, filmes e séries com estabilidade e qualidade premium.">
-  <meta property="og:image" content="logo-jhontech.webp">
-  <meta property="og:type" content="website">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap" rel="stylesheet" />
+  <link rel="preload" as="image" href="logo-jhon-tech.webp" />
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <style>
-    :root {
-      --primary: #22d3ee;
-      --secondary: #0f172a;
-      --text: #e2e8f0;
-      --bg: #020617;
-      --radius: 20px;
+    :root{
+      --bg:#020617; --panel:#0b1226; --panel-2:#0f172a; --text:#e2e8f0;
+      --primary:#22d3ee; --accent:#38bdf8; --danger:#ef4444; --radius:18px;
+      --shadow: 0 0 18px rgba(34,211,238,.35);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0; font-family:'Orbitron',system-ui,Segoe UI,Roboto,Arial,sans-serif; background:var(--bg); color:var(--text); overflow-x:hidden}
+
+    /* Animated background (particles + links) */
+    canvas#bg{position:fixed; inset:0; z-index:-2; background: radial-gradient(1200px 600px at 50% -10%, #0a162b 0%, transparent 60%), radial-gradient(900px 500px at 100% 20%, #081225 0%, transparent 60%), linear-gradient(135deg, #01040e, #07101f 50%, #01040e);}  
+    .bg-glow{position:fixed; inset:-20vh -10vw -10vh -10vw; z-index:-1; filter: blur(60px); pointer-events:none; opacity:.45}
+    .bg-glow:before, .bg-glow:after{content:""; position:absolute; inset:0; background: radial-gradient(40vw 40vh at 20% 20%, rgba(56,189,248,.25), transparent 60%), radial-gradient(45vw 45vh at 80% 10%, rgba(34,211,238,.28), transparent 65%), radial-gradient(35vw 35vh at 50% 90%, rgba(56,189,248,.18), transparent 70%)}
+
+    /* Utility */
+    .container{max-width:1200px; margin:auto; padding:0 20px}
+    .center{text-align:center}
+    .grid{display:grid; gap:24px}
+
+    /* Header */
+    .skip{position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden}
+    .skip:focus{left:16px; top:16px; width:auto; height:auto; background:#000; color:#fff; padding:10px 14px; border-radius:10px; z-index:999}
+
+    header{position:sticky; top:0; z-index:50; backdrop-filter: blur(10px); background:rgba(2,6,23,.72); border-bottom:1px solid rgba(34,211,238,.25)}
+    .nav{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
+    .brand{display:flex; align-items:center; gap:10px}
+    .brand img{width:46px; height:46px; border-radius:50%; object-fit:cover; border:1px solid rgba(34,211,238,.35)}
+    .brand b{letter-spacing:.12em; color:var(--primary)}
+
+    .menu{display:flex; align-items:center; gap:18px}
+    .menu a{color:var(--text); text-decoration:none; font-weight:700; font-size:.95rem; opacity:.9}
+    .menu a:hover{color:#fff; text-shadow:0 0 10px var(--primary)}
+    .hamb{display:none; font-size:1.4rem}
+
+    /* Buttons */
+    .btn{display:inline-flex; align-items:center; gap:10px; padding:12px 18px; border-radius:var(--radius); background:var(--primary); color:#001018; border:2px solid var(--primary); font-weight:800; text-decoration:none; box-shadow: var(--shadow); transition:.25s}
+    .btn:hover{transform:translateY(-2px) scale(1.03); box-shadow:0 0 28px rgba(34,211,238,.6)}
+    .btn.ghost{background:transparent; color:var(--primary)}
+    .btn.ghost:hover{background:rgba(34,211,238,.12)}
+
+    /* Hero */
+    .hero{position:relative; padding:120px 0 80px; text-align:center}
+    .hero h1{font-size: clamp(2.2rem, 4.2vw, 3.6rem); margin:14px 0; color:var(--primary); text-shadow:0 0 18px rgba(34,211,238,.6)}
+    .hero p{max-width:860px; margin:0 auto 20px; opacity:.92}
+    .hero .cta-wrap{margin-top:18px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap}
+
+    /* Reveal on scroll */
+    .reveal{opacity:0; transform: translateY(18px); transition: .6s ease}
+    .reveal.in{opacity:1; transform:none}
+
+    /* Plans */
+    .plans{padding:70px 0}
+    .cards{grid-template-columns: repeat(auto-fit, minmax(260px, 1fr))}
+    .card{background:var(--panel); border:1px solid rgba(34,211,238,.25); border-radius:var(--radius); padding:22px; box-shadow: var(--shadow); position:relative; overflow:hidden}
+    .card:before{content:""; position:absolute; inset:-120% -120% auto auto; width:200%; height:200%; transform:rotate(25deg); background:linear-gradient(120deg, transparent 35%, rgba(255,255,255,.12) 50%, transparent 65%); animation: shine 9s linear infinite}
+    @keyframes shine{0%{transform:translate(-60%, -60%) rotate(25deg)}100%{transform:translate(60%, 60%) rotate(25deg)}}
+    .price{font-size:2.2rem; font-weight:800; margin:10px 0}
+    .badge{position:absolute; top:14px; right:-34px; background:linear-gradient(90deg,#22d3ee,#38bdf8); color:#001018; transform:rotate(35deg); font-weight:900; padding:8px 54px}
+    .features{list-style:none; padding:0; margin:12px 0 18px}
+    .features li{margin:8px 0; display:flex; align-items:center; gap:10px; opacity:.92}
+
+    /* Channels */
+    .channels{padding:70px 0; background: linear-gradient(180deg, rgba(34,211,238,.05), transparent)}
+    .chan-grid{grid-template-columns: repeat(auto-fit, minmax(220px, 1fr))}
+    .chan{background:var(--panel-2); border:1px solid rgba(34,211,238,.2); border-radius:var(--radius); padding:18px; display:flex; align-items:center; gap:12px}
+    .chan i{font-size:1.4rem; color:var(--primary)}
+    .chan span{font-weight:800}
+
+    /* How works */
+    .how{padding:60px 0; background: linear-gradient(180deg, rgba(34,211,238,.06), transparent)}
+    .steps{grid-template-columns: repeat(auto-fit, minmax(240px, 1fr))}
+    .step{background:var(--panel-2); border:1px solid rgba(34,211,238,.2); border-radius:var(--radius); padding:22px}
+    .step h3{margin:8px 0}
+
+    /* Testimonials slider */
+    .testi{padding:70px 0}
+    .slider{position:relative; overflow:hidden; border-radius:var(--radius); background:var(--panel); border:1px solid rgba(34,211,238,.2)}
+    .slides{display:flex; transition:transform .6s ease}
+    .slide{min-width:100%; padding:28px; text-align:center}
+    .dots{display:flex; justify-content:center; gap:10px; margin-top:14px}
+    .dot{width:10px; height:10px; border-radius:999px; background:rgba(34,211,238,.25); border:1px solid rgba(34,211,238,.5); cursor:pointer}
+    .dot.active{background:var(--primary)}
+
+    /* FAQ */
+    .faq{padding:70px 0}
+    details{background:var(--panel); border:1px solid rgba(34,211,238,.2); border-radius:var(--radius); padding:16px 18px}
+    details+details{margin-top:14px}
+    summary{cursor:pointer; font-weight:800; outline:none}
+
+    /* Contact */
+    .contact{padding:70px 0}
+    .contact .wrap{display:grid; grid-template-columns: 1.2fr .8fr; gap:24px}
+    .card.simple{padding:18px}
+    form .row{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+    form .row + .row{margin-top:12px}
+    form input, form select, form textarea{width:100%; padding:12px 14px; border-radius:12px; background:#0c1430; color:var(--text); border:1px solid rgba(34,211,238,.25)}
+
+    /* Footer */
+    footer{border-top:1px solid rgba(34,211,238,.25); background:rgba(2,6,23,.85)}
+    footer .inner{padding:26px 0; display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap}
+
+    /* Floating WhatsApp */
+    .wa{position:fixed; right:18px; bottom:18px; width:64px; height:64px; display:grid; place-items:center; border-radius:50%; background:var(--primary); color:#001018; box-shadow:0 0 20px rgba(34,211,238,.6); z-index:60; animation:pulse 2.2s infinite}
+    @keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.08)}100%{transform:scale(1)}}
+
+    /* Mobile */
+    @media (max-width: 900px){
+      .hamb{display:block}
+      .menu{display:none; position:absolute; top:64px; right:16px; background:rgba(2,6,23,.96); border:1px solid rgba(34,211,238,.25); border-radius:14px; padding:12px; flex-direction:column; gap:10px}
+      .menu.open{display:flex}
+      .contact .wrap{grid-template-columns:1fr}
+      form .row{grid-template-columns:1fr}
     }
 
-    body {
-      margin: 0;
-      font-family: 'Orbitron', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      scroll-behavior: smooth;
-    }
-
-    header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: rgba(15, 23, 42, 0.9);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 40px;
-      z-index: 1000;
-      box-shadow: 0 2px 15px rgba(34, 211, 238, 0.3);
-    }
-
-    header img {
-      height: 50px;
-    }
-
-    nav a {
-      margin-left: 25px;
-      text-decoration: none;
-      color: var(--text);
-      font-weight: 600;
-      transition: 0.3s;
-    }
-
-    nav a:hover {
-      color: var(--primary);
-      text-shadow: 0 0 10px var(--primary);
-    }
-
-    .hero {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      min-height: 100vh;
-      padding: 0 20px;
-      background: linear-gradient(135deg, #020617, #0f172a 60%, #22d3ee15);
-    }
-
-    .hero h1 {
-      font-size: 3rem;
-      color: var(--primary);
-      text-shadow: 0 0 20px var(--primary);
-    }
-
-    .hero p {
-      max-width: 600px;
-      margin: 20px auto;
-      font-size: 1.2rem;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 12px 25px;
-      border-radius: var(--radius);
-      background: var(--primary);
-      color: var(--bg);
-      font-weight: bold;
-      text-decoration: none;
-      margin: 10px;
-      transition: 0.3s;
-      box-shadow: 0 0 15px rgba(34, 211, 238, 0.6);
-    }
-
-    .btn:hover {
-      transform: scale(1.08);
-      box-shadow: 0 0 25px rgba(34, 211, 238, 1);
-    }
-
-    section {
-      padding: 80px 20px;
-      text-align: center;
-    }
-
-    h2 {
-      font-size: 2.2rem;
-      margin-bottom: 40px;
-      color: var(--primary);
-      text-shadow: 0 0 15px var(--primary);
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
-      max-width: 1100px;
-      margin: auto;
-    }
-
-    .card {
-      background: var(--secondary);
-      padding: 25px;
-      border-radius: var(--radius);
-      box-shadow: 0 0 15px rgba(34, 211, 238, 0.3);
-      transition: 0.3s;
-    }
-
-    .card:hover {
-      transform: translateY(-8px) scale(1.02);
-      box-shadow: 0 0 25px rgba(34, 211, 238, 0.6);
-    }
-
-    .faq {
-      max-width: 800px;
-      margin: auto;
-      text-align: left;
-    }
-
-    .faq-item {
-      background: var(--secondary);
-      margin: 15px 0;
-      padding: 20px;
-      border-radius: var(--radius);
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    .faq-item:hover {
-      box-shadow: 0 0 15px rgba(34, 211, 238, 0.4);
-    }
-
-    .faq-item h3 {
-      margin: 0;
-      font-size: 1.2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .faq-item p {
-      display: none;
-      margin-top: 10px;
-    }
-
-    .faq-item.active p {
-      display: block;
-    }
-
-    footer {
-      background: var(--secondary);
-      padding: 30px;
-      text-align: center;
-      color: var(--text);
-    }
-
-    .floating-whatsapp {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: var(--primary);
-      border-radius: 50%;
-      width: 65px;
-      height: 65px;
-      display: grid;
-      place-items: center;
-      font-size: 28px;
-      color: var(--bg);
-      box-shadow: 0 0 20px rgba(34, 211, 238, 0.6);
-      z-index: 1000;
-      animation: pulse 2s infinite;
-      transition: 0.3s;
-    }
-
-    .floating-whatsapp:hover {
-      transform: scale(1.15);
-    }
-
-    @keyframes pulse {
-      0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(34,211,238,0.7); }
-      70% { transform: scale(1.08); box-shadow: 0 0 25px 10px rgba(34,211,238,0); }
-      100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(34,211,238,0); }
-    }
-
-    @media (max-width: 768px) {
-      header {
-        flex-direction: column;
-        padding: 10px;
-      }
-      nav a {
-        margin: 10px;
-        display: inline-block;
-      }
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      .slides, .reveal, .btn, .card:before, .wa{animation:none !important; transition:none !important}
+      canvas#bg{background:#07101f}
     }
   </style>
 </head>
 <body>
+  <a class="skip" href="#conteudo">Ir para o conteúdo principal</a>
 
-  <!-- Cabeçalho -->
-  <header>
-    <img src="Logo jhon tech.webp" alt="Logo Jhon Tech IPTV">
-    <nav>
-      <a href="#planos">Planos</a>
-      <a href="#faq">FAQ</a>
-      <a href="#contato">Contato</a>
-    </nav>
+  <!-- Background effects -->
+  <canvas id="bg" aria-hidden="true"></canvas>
+  <div class="bg-glow" aria-hidden="true"></div>
+
+  <!-- HEADER -->
+  <header role="banner">
+    <div class="container nav">
+      <div class="brand">
+        <img src="logo-jhon-tech.webp" alt="Logo Jhon Tech IPTV" loading="lazy" />
+        <b>Jhon Tech IPTV</b>
+      </div>
+      <nav aria-label="Menu principal">
+        <button class="hamb btn ghost" aria-expanded="false" aria-controls="menu"><i class="fa-solid fa-bars"></i></button>
+        <div id="menu" class="menu">
+          <a href="#planos">Planos</a>
+          <a href="#canais">Canais</a>
+          <a href="#como-funciona">Como funciona</a>
+          <a href="#depoimentos">Depoimentos</a>
+          <a href="#faq">FAQ</a>
+          <a href="#contato">Contato</a>
+          <a class="btn" data-wa>WhatsApp</a>
+        </div>
+      </nav>
+    </div>
   </header>
 
-  <!-- Hero -->
-  <section class="hero">
-    <h1>Bem-vindo à Jhon Tech IPTV</h1>
-    <p>Assista seus canais favoritos, filmes e séries em alta qualidade, com estabilidade e tecnologia de ponta.</p>
-    <a href="#planos" class="btn">Ver Planos</a>
-    <a href="#contato" class="btn">Falar com Suporte</a>
-  </section>
+  <main id="conteudo">
+    <!-- HERO -->
+    <section class="hero container">
+      <h1 class="reveal">O Futuro do Streaming Está Aqui</h1>
+      <p class="reveal">Tecnologia avançada, estabilidade e entretenimento ilimitado. Clique e fale com a Jhon Tech para ativar seu acesso agora mesmo.</p>
+      <div class="cta-wrap reveal">
+        <a class="btn" data-wa><i class="fa-brands fa-whatsapp"></i> Começar Agora</a>
+        <a href="#planos" class="btn ghost"><i class="fa-solid fa-bolt"></i> Ver Planos</a>
+      </div>
+    </section>
 
-  <!-- Planos -->
-  <section id="planos">
-    <h2>Nossos Planos</h2>
-    <div class="cards">
-      <div class="card">
-        <h3>Plano Mensal</h3>
-        <p>Apenas R$30,00</p>
-        <a href="#contato" class="btn">Assinar</a>
+    <!-- PLANOS -->
+    <section id="planos" class="plans container">
+      <h2 class="center reveal">Nossos Planos</h2>
+      <div class="grid cards">
+        <article class="card reveal">
+          <span class="badge">Popular</span>
+          <h3>Mensal</h3>
+          <p class="price">R$ 30,00</p>
+          <ul class="features">
+            <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> +10.000 canais</li>
+            <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Filmes e séries on‑demand</li>
+            <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Suporte rápido via WhatsApp</li>
+          </ul>
+          <a class="btn" data-wa>Assinar Mensal</a>
+        </article>
+        <article class="card reveal">
+          <h3>Trimestral (3 meses)</h3>
+          <p class="price">R$ 80,00</p>
+          <ul class="features">
+            <li><i class="fa-solid fa-circle-check"></i> Melhor custo-benefício</li>
+            <li><i class="fa-solid fa-circle-check"></i> Conteúdo em HD/FHD</li>
+            <li><i class="fa-solid fa-circle-check"></i> Atualizações constantes</li>
+          </ul>
+          <a class="btn" data-wa>Assinar Trimestral</a>
+        </article>
+        <article class="card reveal">
+          <h3>Anual (12 meses)</h3>
+          <p class="price">R$ 280,00</p>
+          <ul class="features">
+            <li><i class="fa-solid fa-circle-check"></i> 12 meses sem preocupação</li>
+            <li><i class="fa-solid fa-circle-check"></i> Prioridade no suporte</li>
+            <li><i class="fa-solid fa-circle-check"></i> Bônus em eventos especiais</li>
+          </ul>
+          <a class="btn" data-wa>Assinar Anual</a>
+        </article>
       </div>
-      <div class="card">
-        <h3>Plano Trimestral</h3>
-        <p>3 meses por R$80,00</p>
-        <a href="#contato" class="btn">Assinar</a>
+    </section>
+
+    <!-- CANAIS -->
+    <section id="canais" class="channels">
+      <div class="container">
+        <h2 class="center reveal">Categorias de Canais</h2>
+        <div class="grid chan-grid">
+          <div class="chan reveal"><i class="fa-solid fa-futbol"></i> <span>Esportes (Brasileirão, Champions, UFC)</span></div>
+          <div class="chan reveal"><i class="fa-solid fa-tv"></i> <span>Abertos & Regionais</span></div>
+          <div class="chan reveal"><i class="fa-solid fa-film"></i> <span>Filmes & Séries 24/7</span></div>
+          <div class="chan reveal"><i class="fa-solid fa-child"></i> <span>Infantil & Família</span></div>
+          <div class="chan reveal"><i class="fa-solid fa-music"></i> <span>Música & Shows</span></div>
+          <div class="chan reveal"><i class="fa-solid fa-earth-americas"></i> <span>Internacionais</span></div>
+        </div>
       </div>
-      <div class="card">
-        <h3>Plano Quadrimestral</h3>
-        <p>4 meses por R$100,00</p>
-        <a href="#contato" class="btn">Assinar</a>
+    </section>
+
+    <!-- COMO FUNCIONA -->
+    <section id="como-funciona" class="how">
+      <div class="container">
+        <h2 class="center reveal">Como Funciona</h2>
+        <div class="grid steps">
+          <div class="step reveal">
+            <h3>1. Escolha o Plano</h3>
+            <p>Selecione a duração que faz sentido para você.</p>
+          </div>
+          <div class="step reveal">
+            <h3>2. Fale no WhatsApp</h3>
+            <p>Atendimento humano, rápido e claro.</p>
+          </div>
+          <div class="step reveal">
+            <h3>3. Assista</h3>
+            <p>Acesso enviado em minutos. Aproveite!</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEPOIMENTOS (Slider) -->
+    <section id="depoimentos" class="testi container">
+      <h2 class="center reveal">O que dizem nossos clientes</h2>
+      <div class="slider reveal" aria-roledescription="carousel" aria-label="Depoimentos">
+        <div class="slides" id="slides">
+          <div class="slide">⭐⭐⭐⭐⭐ “Qualidade incrível, não trava e tem muitos canais.” — Ana P.</div>
+          <div class="slide">⭐⭐⭐⭐⭐ “Atendimento rápido no WhatsApp, resolvem tudo na hora.” — Marcos L.</div>
+          <div class="slide">⭐⭐⭐⭐⭐ “Vale cada centavo, melhor custo-benefício.” — Juliana R.</div>
+          <div class="slide">⭐⭐⭐⭐⭐ “Assisti todos os jogos sem travar.” — João V.</div>
+        </div>
+      </div>
+      <div class="dots" id="dots" aria-hidden="true"></div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="faq container">
+      <h2 class="center reveal">Perguntas Frequentes</h2>
+      <details class="reveal">
+        <summary>Posso testar antes de contratar?</summary>
+        <p>Sim. Oferecemos teste: 4h em Smart TVs e 3 dias em dispositivos Android.</p>
+      </details>
+      <details class="reveal">
+        <summary>Funciona em quais dispositivos?</summary>
+        <p>Smart TV, TV Box, celular, tablet e computador.</p>
+      </details>
+      <details class="reveal">
+        <summary>Qual internet mínima?</summary>
+        <p>A partir de 10 Mb já é possível assistir sem travamentos.</p>
+      </details>
+    </section>
+
+    <!-- CONTATO -->
+    <section id="contato" class="contact container">
+      <h2 class="center reveal">Entre em Contato</h2>
+      <div class="wrap">
+        <div class="card simple reveal">
+          <p><strong>WhatsApp:</strong> <a href="#" data-wa>(98) 98179-7139</a></p>
+          <p>Suporte e ativação imediata. Clique para abrir a conversa.</p>
+          <div style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap">
+            <a class="btn" data-wa><i class="fa-brands fa-whatsapp"></i> Falar no WhatsApp</a>
+            <a href="#planos" class="btn ghost"><i class="fa-solid fa-tags"></i> Ver Planos</a>
+          </div>
+        </div>
+
+        <!-- Form que envia para WhatsApp e fallback e-mail -->
+        <div class="card reveal" style="background:var(--panel-2)">
+          <h3 style="margin-top:0">Solicitar Ativação</h3>
+          <form id="leadForm">
+            <div class="row">
+              <label>
+                <span>Seu nome</span>
+                <input required name="nome" placeholder="Ex: Ana Souza" />
+              </label>
+              <label>
+                <span>Dispositivo</span>
+                <select name="device">
+                  <option>Smart TV</option>
+                  <option>TV Box</option>
+                  <option>Android</option>
+                  <option>iPhone/iPad</option>
+                  <option>Computador</option>
+                </select>
+              </label>
+            </div>
+            <div class="row">
+              <label>
+                <span>Plano</span>
+                <select name="plano">
+                  <option>Mensal - R$ 30,00</option>
+                  <option>Trimestral - R$ 80,00</option>
+                  <option>Anual - R$ 280,00</option>
+                </select>
+              </label>
+              <label>
+                <span>Mensagem</span>
+                <input name="msg" placeholder="Ex: Quero teste grátis / dúvidas..." />
+              </label>
+            </div>
+            <div class="row">
+              <button class="btn" type="submit"><i class="fa-brands fa-whatsapp"></i> Enviar pelo WhatsApp</button>
+              <button class="btn ghost" type="button" id="emailBtn"><i class="fa-solid fa-envelope"></i> Enviar por E-mail</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer role="contentinfo">
+    <div class="container inner">
+      <small>© <span id="year"></span> Jhon Tech IPTV — Todos os direitos reservados.</small>
+      <div style="display:flex; gap:10px; align-items:center">
+        <a class="btn ghost" href="#planos"><i class="fa-solid fa-layer-group"></i> Planos</a>
+        <a class="btn" data-wa><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
       </div>
     </div>
-  </section>
-
-  <!-- FAQ -->
-  <section id="faq">
-    <h2>Perguntas Frequentes</h2>
-    <div class="faq">
-      <div class="faq-item">
-        <h3>📺 Em quais aparelhos funciona? <i class="fa-solid fa-plus"></i></h3>
-        <p>Funciona em Smart TVs, TV Box, celulares Android, iPhone, computadores e tablets.</p>
-      </div>
-      <div class="faq-item">
-        <h3>⚡ Tem período de teste? <i class="fa-solid fa-plus"></i></h3>
-        <p>Sim! 4 horas em Smart TVs e 3 dias em dispositivos Android.</p>
-      </div>
-      <div class="faq-item">
-        <h3>💳 Como faço o pagamento? <i class="fa-solid fa-plus"></i></h3>
-        <p>Aceitamos Pix, cartão de crédito e débito.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contato -->
-  <section id="contato">
-    <h2>Entre em Contato</h2>
-    <p>📞 WhatsApp: (98) 98179-7139</p>
-    <a href="https://wa.me/5598981797139" class="btn">Falar no WhatsApp</a>
-  </section>
-
-  <!-- Rodapé -->
-  <footer>
-    <p>&copy; 2025 Jhon Tech IPTV — Todos os direitos reservados.</p>
   </footer>
 
-  <!-- WhatsApp flutuante -->
-  <a href="https://wa.me/5598981797139" class="floating-whatsapp"><i class="fab fa-whatsapp"></i></a>
+  <!-- Floating WhatsApp -->
+  <a class="wa" data-wa aria-label="Abrir conversa no WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+
+  <!-- JSON-LD (Organization + FAQ) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Jhon Tech IPTV",
+    "url": "https://example.com/",
+    "logo": "https://example.com/logo-jhon-tech.webp",
+    "contactPoint": [{
+      "@type": "ContactPoint",
+      "contactType": "customer support",
+      "telephone": "+55-98-98179-7139",
+      "areaServed": "BR"
+    }]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type":"Question","name":"Posso testar antes de contratar?","acceptedAnswer":{"@type":"Answer","text":"Sim. Oferecemos teste: 4h em Smart TVs e 3 dias em dispositivos Android."}},
+      {"@type":"Question","name":"Funciona em quais dispositivos?","acceptedAnswer":{"@type":"Answer","text":"Smart TV, TV Box, celular, tablet e computador."}},
+      {"@type":"Question","name":"Qual internet mínima?","acceptedAnswer":{"@type":"Answer","text":"A partir de 10 Mb já é possível assistir sem travamentos."}}
+    ]
+  }
+  </script>
 
   <script>
-    // FAQ interativo
-    document.querySelectorAll(".faq-item").forEach(item => {
-      item.addEventListener("click", () => {
-        item.classList.toggle("active");
-        const icon = item.querySelector("i");
-        if (item.classList.contains("active")) {
-          icon.classList.replace("fa-plus", "fa-minus");
-        } else {
-          icon.classList.replace("fa-minus", "fa-plus");
-        }
+    // ======= CONFIG =======
+    const WA_LINK = "https://wa.me/message/HF7DJWNQRHYZA1"; // WhatsApp oficial (padrão)
+    const EMAIL_TO = "suportejhontech@gmail.com"; // troque se quiser
+    const ANALYTICS_ID = ""; // ex: G-XXXXXXXXXX (se preencher, gtag é habilitado)
+
+    // ======= WhatsApp (global) =======
+    document.addEventListener('click', (e) => {
+      const target = e.target.closest('[data-wa]');
+      if (target){ window.open(WA_LINK, '_blank', 'noopener'); e.preventDefault(); }
+    }, {passive:false});
+
+    // ======= Mobile Menu =======
+    const hamb = document.querySelector('.hamb');
+    const menu = document.getElementById('menu');
+    if(hamb){
+      hamb.addEventListener('click', () => {
+        const open = menu.classList.toggle('open');
+        hamb.setAttribute('aria-expanded', open ? 'true' : 'false');
       });
+    }
+
+    // ======= Year =======
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // ======= Reveal on Scroll =======
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+    }, {threshold: .15});
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+    // ======= Testimonials Slider =======
+    const slides = document.getElementById('slides');
+    const dotsWrap = document.getElementById('dots');
+    const total = slides.children.length;
+    let idx = 0, auto;
+    const set = (i) => {
+      idx = (i+total)%total;
+      slides.style.transform = `translateX(${-idx*100}%)`;
+      [...dotsWrap.children].forEach((d,k)=>d.classList.toggle('active', k===idx));
+    };
+    for(let i=0;i<total;i++){
+      const d=document.createElement('button'); d.className='dot'; d.setAttribute('aria-label', `Ir para depoimento ${i+1}`); d.addEventListener('click',()=>set(i)); dotsWrap.appendChild(d);
+    }
+    set(0);
+    const start=()=> auto=setInterval(()=>set(idx+1), 5000);
+    const stop=()=> clearInterval(auto);
+    slides.addEventListener('pointerenter', stop); slides.addEventListener('pointerleave', start);
+    start();
+
+    // ======= Form: envia para WhatsApp e fallback e-mail =======
+    const form = document.getElementById('leadForm');
+    const emailBtn = document.getElementById('emailBtn');
+    function makeMsg(data){
+      return `Olá, sou ${data.get('nome')}. Dispositivo: ${data.get('device')}. Plano: ${data.get('plano')}. Mensagem: ${data.get('msg')||''}`.trim();
+    }
+    form.addEventListener('submit', (ev)=>{
+      ev.preventDefault();
+      const data = new FormData(form);
+      const text = encodeURIComponent(makeMsg(data));
+      const url = `${WA_LINK}?text=${text}`;
+      window.open(url, '_blank', 'noopener');
     });
+    emailBtn.addEventListener('click', ()=>{
+      const data = new FormData(form);
+      const subject = encodeURIComponent('Solicitação de ativação IPTV');
+      const body = encodeURIComponent(makeMsg(data));
+      window.location.href = `mailto:${EMAIL_TO}?subject=${subject}&body=${body}`;
+    });
+
+    // ======= Particles Background =======
+    const canvas = document.getElementById('bg');
+    const ctx = canvas.getContext('2d');
+    let W,H,particles=[]; const COUNT = 90; const LINK_DIST=140;
+
+    function resize(){ W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
+    window.addEventListener('resize', resize); resize();
+
+    function rand(min,max){ return Math.random()*(max-min)+min }
+    function make(){ particles = Array.from({length: COUNT}, ()=>({ x:rand(0,W), y:rand(0,H), vx:rand(-.6,.6), vy:rand(-.6,.6), r:rand(1.2,2.3) })) }
+    make();
+
+    function step(){
+      ctx.clearRect(0,0,W,H);
+      // draw links & update
+      for(let i=0;i<particles.length;i++){
+        const p=particles[i];
+        p.x+=p.vx; p.y+=p.vy;
+        if(p.x<0||p.x>W) p.vx*=-1; if(p.y<0||p.y>H) p.vy*=-1;
+        for(let j=i+1;j<particles.length;j++){
+          const q=particles[j];
+          const dx=p.x-q.x, dy=p.y-q.y; const d=Math.hypot(dx,dy);
+          if(d<LINK_DIST){
+            const a = 1 - d/LINK_DIST;
+            ctx.strokeStyle = `rgba(34,211,238,${a*.45})`;
+            ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(p.x,p.y); ctx.lineTo(q.x,q.y); ctx.stroke();
+          }
+        }
+      }
+      // points
+      for(const p of particles){
+        ctx.fillStyle = 'rgba(56,189,248,.9)';
+        ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fill();
+      }
+      anim = requestAnimationFrame(step);
+    }
+
+    let anim; const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(!prefersReduced){ step(); }
+
+    // ======= PWA: Manifest + Service Worker (inline via Blob) =======
+    const manifest = {
+      name: "Jhon Tech IPTV",
+      short_name: "JhonTech",
+      start_url: ".",
+      display: "standalone",
+      background_color: "#020617",
+      theme_color: "#22d3ee",
+      icons: [
+        { src: "icon-192.png", sizes: "192x192", type: "image/png" },
+        { src: "icon-512.png", sizes: "512x512", type: "image/png" }
+      ]
+    };
+    const manifestBlob = new Blob([JSON.stringify(manifest)], {type:'application/json'});
+    const manifestURL = URL.createObjectURL(manifestBlob);
+    const link = document.createElement('link'); link.rel='manifest'; link.href=manifestURL; document.head.appendChild(link);
+
+    if('serviceWorker' in navigator){
+      const swCode = `const CACHE='jt-v1'; self.addEventListener('install',e=>{e.waitUntil(caches.open(CACHE).then(c=>c.addAll(['./','logo-jhon-tech.webp'])))}); self.addEventListener('fetch',e=>{e.respondWith(caches.match(e.request).then(r=>r||fetch(e.request).then(resp=>{const copy=resp.clone(); caches.open(CACHE).then(c=>c.put(e.request,copy)); return resp;})).catch(()=>caches.match('./')))});`;
+      const swURL = URL.createObjectURL(new Blob([swCode], {type:'text/javascript'}));
+      navigator.serviceWorker.register(swURL);
+    }
+
+    // ======= Analytics (opt-in) =======
+    if(ANALYTICS_ID){
+      const s = document.createElement('script'); s.async=true; s.src=`https://www.googletagmanager.com/gtag/js?id=${ANALYTICS_ID}`; document.head.appendChild(s);
+      window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', ANALYTICS_ID);
+    }
   </script>
 </body>
 </html>

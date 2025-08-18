@@ -142,7 +142,7 @@
     <h2 class="center reveal">Seja um Revendedor</h2>
     <div class="plano-card">
       <h3>Revenda Jhon Tech</h3>
-      <p>Comece com 10 créditos por apenas R$ 70,00</p>
+      <p>Comece com 5 créditos por apenas R$ 30,00</p>
       <p>Ganhe descontos progressivos até 180 créditos</p>
       <p>Suporte exclusivo e painel de gestão de clientes</p>
       <a class="btn" href="https://wa.me/5598981797139" target="_blank"><i class="fa-brands fa-whatsapp"></i> Solicitar Revenda</a>
@@ -221,3 +221,43 @@
   hamb.addEventListener('click', () => {
     const expanded = hamb.getAttribute('aria-expanded') === 'true';
     hamb.setAttribute('aria-expanded', !expanded);
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Menu hambúrguer
+  const hamb = document.querySelector('.hamb');
+  const menu = document.getElementById('menu');
+  hamb.addEventListener('click', () => {
+    const expanded = hamb.getAttribute('aria-expanded') === 'true';
+    hamb.setAttribute('aria-expanded', !expanded);
+    menu.hidden = expanded ? true : false;
+  });
+
+  // Formulário - enviar para WhatsApp
+  const leadForm = document.getElementById('leadForm');
+  leadForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const data = new FormData(leadForm);
+    const nome = data.get('nome');
+    const device = data.get('device');
+    const plano = data.get('plano');
+    const msg = data.get('msg') || '';
+
+    const texto = `Olá! Me chamo *${nome}* e quero ativar o IPTV.\n\n📺 Dispositivo: ${device}\n📦 Plano: ${plano}\n💬 Mensagem: ${msg}`;
+    const url = `https://wa.me/5598981797139?text=${encodeURIComponent(texto)}`;
+    window.open(url, '_blank');
+  });
+
+  // Botão de envio por e-mail
+  document.getElementById('emailBtn').addEventListener('click', () => {
+    const data = new FormData(leadForm);
+    const nome = data.get('nome');
+    const device = data.get('device');
+    const plano = data.get('plano');
+    const msg = data.get('msg') || '';
+
+    const subject = `Ativação IPTV - ${nome}`;
+    const body = `Nome: ${nome}\nDispositivo: ${device}\nPlano: ${plano}\nMensagem: ${msg}`;
+    window.location.href = `mailto:suportejhontech@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  });
+</script>

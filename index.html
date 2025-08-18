@@ -2,261 +2,194 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Jhon Tech — O Futuro do Streaming</title>
-  <meta name="description" content="Canais, filmes e séries com estabilidade e qualidade premium. Planos flexíveis, suporte rápido e acesso imediato via WhatsApp. Seja revendedor e aumente seus ganhos!" />
-  <meta name="keywords" content="IPTV, streaming, canais, filmes, séries, esportes, Jhon Tech, TV online, planos IPTV, assistir futebol, revenda IPTV" />
-  <meta name="theme-color" content="#22d3ee" />
-  <link rel="canonical" href="https://SEU-USUARIO.github.io/SEU-REPOSITORIO/" />
-  <link rel="icon" href="favicon.ico" />
-
-  <!-- Open Graph / Twitter -->
-  <meta property="og:title" content="Jhon Tech — O Futuro do Streaming" />
-  <meta property="og:description" content="Assista com qualidade e estabilidade. Planos acessíveis, suporte imediato e oportunidade de revenda." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://SEU-USUARIO.github.io/SEU-REPOSITORIO/" />
-  <meta property="og:site_name" content="Jhon Tech IPTV" />
-  <meta name="twitter:card" content="summary_large_image" />
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap" rel="stylesheet" />
-
-  <!-- Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-  <style>
-    :root {
-      --primary: #22d3ee;
-      --secondary: #00ffff;
-      --accent: #ffcc00;
-      --panel-2: #111;
-      --panel-1: #000;
-      --text-light: #fff;
-      --btn-radius: 12px;
-      --shadow: 0 8px 20px rgba(34, 211, 238, 0.3);
-    }
-    *, *::before, *::after { box-sizing: border-box; }
-    body { margin: 0; font-family: 'Orbitron', sans-serif; background: linear-gradient(135deg, #000, #111); color: var(--text-light); overflow-x: hidden; scroll-behavior: smooth; }
-    a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
-    a:hover, a:focus { color: var(--primary); transform: scale(1.05); }
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 15px; }
-    header { background: rgba(17,17,17,0.95); padding: 15px 0; position: sticky; top: 0; z-index: 1000; box-shadow: var(--shadow); }
-    .brand img { height: 60px; vertical-align: middle; transition: transform 0.3s; }
-    .brand img:hover { transform: scale(1.15); }
-    nav .menu { display: flex; flex-wrap: wrap; gap: 10px; justify-content: flex-end; align-items: center; }
-    nav .menu a.btn { background: var(--primary); color: #000; padding: 10px 25px; border-radius: var(--btn-radius); font-weight: bold; text-transform: uppercase; box-shadow: var(--shadow); }
-    nav .menu a.btn.ghost { background: transparent; border: 2px solid var(--primary); color: var(--primary); }
-
-    .hero { padding: 120px 20px; text-align: center; position: relative; z-index: 10; background: radial-gradient(circle at center, rgba(34,211,238,0.2), transparent); border-radius: var(--btn-radius); box-shadow: var(--shadow); }
-    .hero h1 { font-size: 3rem; margin-bottom: 20px; color: var(--secondary); text-shadow: 0 0 10px var(--primary); }
-    .hero p { font-size: 1.3rem; margin-bottom: 30px; line-height: 1.5; }
-    .cta-wrap .btn { margin: 8px; transition: transform 0.3s, box-shadow 0.3s; }
-    .cta-wrap .btn:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
-
-    #planos { display: flex; flex-wrap: wrap; justify-content: center; gap: 25px; margin: 60px 0; }
-    .plano-card { background: linear-gradient(135deg, #111, #222); padding: 25px; border-radius: var(--btn-radius); width: 280px; text-align: center; transition: transform 0.3s, box-shadow 0.3s; cursor: pointer; box-shadow: var(--shadow); border: 1px solid rgba(34,211,238,0.3); }
-    .plano-card:hover { transform: translateY(-10px) scale(1.05); box-shadow: 0 12px 30px rgba(34,211,238,0.6); }
-    .plano-card h3 { margin-top: 0; font-size: 1.5rem; color: var(--primary); }
-    .plano-card p { margin: 12px 0; font-size: 1.1rem; line-height: 1.4; }
-
-    section#contato { margin: 60px 0; }
-    .card { background: rgba(17,17,17,0.85); padding: 20px; border-radius: var(--btn-radius); box-shadow: var(--shadow); transition: transform 0.3s, box-shadow 0.3s; }
-    .card:hover { transform: translateY(-5px); box-shadow: 0 12px 30px rgba(34,211,238,0.6); }
-
-    /* Destaque Solicitar Ativação */
-    #leadForm { display: flex; flex-direction: column; gap: 15px; }
-    #leadForm .row { display: flex; flex-wrap: wrap; gap: 15px; }
-    #leadForm label { flex: 1; display: flex; flex-direction: column; }
-    #leadForm input, #leadForm select { padding: 12px 15px; border-radius: var(--btn-radius); border: 1px solid var(--primary); background: #000; color: var(--text-light); font-size: 1rem; }
-    #leadForm input:focus, #leadForm select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 10px var(--accent); }
-    #leadForm button { font-size: 1.1rem; padding: 12px; }
-    #leadForm .btn { width: 100%; display: flex; justify-content: center; align-items: center; gap: 8px; }
-
-    footer { background: rgba(17,17,17,0.95); padding: 40px 0; text-align: center; box-shadow: var(--shadow); }
-    .wa { position: fixed; bottom: 30px; right: 30px; background: var(--primary); color: #000; padding: 18px; border-radius: 50%; font-size: 28px; z-index: 9999; box-shadow: 0 0 20px rgba(34,211,238,0.7); transition: transform 0.3s; }
-    .wa:hover { transform: scale(1.15); }
-    .skip { position: absolute; top: -50px; left: 0; background: var(--primary); color: #000; padding: 12px; z-index: 1000; border-radius: var(--btn-radius); }
-    .skip:focus { top: 10px; }
-
-    @media (max-width: 768px) { nav .menu { flex-direction: column; } .hero h1 { font-size: 2.2rem; } .hero p { font-size: 1.1rem; } #planos { flex-direction: column; } .plano-card { width: 90%; } }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jhon Tech IPTV</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-<a class="skip" href="#conteudo">Ir para o conteúdo principal</a>
-<canvas id="bg" aria-hidden="true"></canvas>
-<header role="banner">
-  <div class="container nav">
-    <div class="brand">
-      <img src="logo-jhon-tech.webp" alt="Logo Jhon Tech IPTV" loading="lazy" />
-      <b>Jhon Tech IPTV</b>
+<body class="bg-gray-50 text-gray-900">
+  <!-- Header -->
+  <header class="fixed top-0 left-0 w-full bg-white shadow-md z-50">
+    <div class="max-w-7xl mx-auto flex items-center justify-between p-4">
+      <div class="text-2xl font-bold text-indigo-600">Jhon Tech IPTV</div>
+      <nav class="hidden md:flex space-x-6">
+        <a href="#planos" class="hover:text-indigo-600">Planos</a>
+        <a href="#canais" class="hover:text-indigo-600">Canais</a>
+        <a href="#como-funciona" class="hover:text-indigo-600">Como Funciona</a>
+        <a href="#depoimentos" class="hover:text-indigo-600">Depoimentos</a>
+        <a href="#faq" class="hover:text-indigo-600">FAQ</a>
+        <a href="#contato" class="hover:text-indigo-600">Contato</a>
+      </nav>
+      <a href="https://wa.me/5511999999999" target="_blank" class="hidden md:inline bg-green-500 text-white px-4 py-2 rounded-lg shadow hover:bg-green-600">WhatsApp</a>
+      <button id="menuBtn" class="md:hidden text-2xl">☰</button>
     </div>
-    <nav aria-label="Menu principal">
-      <button class="hamb btn ghost" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu de navegação">
-        <i class="fa-solid fa-bars"></i>
-      </button>
-      <div id="menu" class="menu" hidden>
-        <a href="#planos">Planos</a>
-        <a href="#canais">Canais</a>
-        <a href="#como-funciona">Como funciona</a>
-        <a href="#depoimentos">Depoimentos</a>
-        <a href="#faq">FAQ</a>
-        <a href="#contato">Contato</a>
-        <a class="btn" href="https://wa.me/5598981797139" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
-        <a class="btn ghost" href="#revenda"><i class="fa-solid fa-hand-holding-dollar"></i> Seja Revendedor</a>
-      </div>
-    </nav>
-  </div>
-</header>
-<main id="conteudo">
-  <section class="hero container">
-    <h1 class="reveal">O Futuro do Streaming Está Aqui</h1>
-    <p class="reveal">Tecnologia avançada, estabilidade e entretenimento ilimitado. Clique e fale com a Jhon Tech para ativar seu acesso agora mesmo.</p>
-    <div class="cta-wrap reveal">
-      <a class="btn" href="https://wa.me/5598981797139" target="_blank"><i class="fa-brands fa-whatsapp"></i> Começar Agora</a>
-      <a href="#planos" class="btn ghost"><i class="fa-solid fa-bolt"></i> Ver Planos</a>
-      <a href="#revenda" class="btn ghost"><i class="fa-solid fa-hand-holding-dollar"></i> Seja Revendedor</a>
+    <div id="mobileMenu" class="hidden md:hidden bg-white border-t">
+      <a href="#planos" class="block px-4 py-2">Planos</a>
+      <a href="#canais" class="block px-4 py-2">Canais</a>
+      <a href="#como-funciona" class="block px-4 py-2">Como Funciona</a>
+      <a href="#depoimentos" class="block px-4 py-2">Depoimentos</a>
+      <a href="#faq" class="block px-4 py-2">FAQ</a>
+      <a href="#contato" class="block px-4 py-2">Contato</a>
+      <a href="https://wa.me/5511999999999" target="_blank" class="block px-4 py-2 text-green-600">WhatsApp</a>
     </div>
-  </section>
-  <section id="planos" class="container">
-    <div class="plano-card">
-      <h3>Mensal</h3>
-      <p>R$ 30,00 / mês</p>
-      <p>Acesso completo a todos os canais</p>
-    </div>
-    <div class="plano-card">
-      <h3>Trimestral</h3>
-      <p>R$ 80,00 / 3 meses</p>
-      <p>Economize e aproveite a qualidade premium</p>
-    </div>
-    <div class="plano-card">
-      <h3>Anual</h3>
-      <p>R$ 280,00 / ano</p>
-      <p>Melhor custo-benefício e suporte prioritário</p>
-    </div>
-  </section>
+  </header>
 
-  <section id="revenda" class="container">
-    <h2 class="center reveal">Seja um Revendedor</h2>
-    <div class="plano-card">
-      <h3>Revenda Jhon Tech</h3>
-      <p>Comece com 5 créditos por apenas R$ 30,00</p>
-      <p>Ganhe descontos progressivos até 180 créditos</p>
-      <p>Suporte exclusivo e painel de gestão de clientes</p>
-      <a class="btn" href="https://wa.me/5598981797139" target="_blank"><i class="fa-brands fa-whatsapp"></i> Solicitar Revenda</a>
-    </div>
-  </section>
+  <main class="pt-24">
+    <!-- Hero -->
+    <section class="bg-indigo-600 text-white text-center py-20 px-4">
+      <h1 class="text-4xl font-bold mb-4">Assista a milhares de canais e filmes com Jhon Tech IPTV</h1>
+      <p class="text-lg mb-6">Qualidade, estabilidade e suporte imediato no seu dispositivo favorito.</p>
+      <a href="#planos" class="bg-white text-indigo-600 px-6 py-3 rounded-lg font-semibold shadow hover:bg-gray-100">Escolher Plano</a>
+    </section>
 
-  <section id="contato" class="contact container">
-    <h2 class="center reveal">Entre em Contato</h2>
-    <div class="wrap">
-      <div class="card simple reveal">
-        <p><strong>WhatsApp:</strong> <a href="https://wa.me/5598981797139" target="_blank">(98) 98179-7139</a></p>
-        <p>Suporte e ativação imediata. Clique para abrir a conversa.</p>
-        <div style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap">
-          <a class="btn" href="https://wa.me/5598981797139" target="_blank"><i class="fa-brands fa-whatsapp"></i> Falar no WhatsApp</a>
-          <a href="#planos" class="btn ghost"><i class="fa-solid fa-tags"></i> Ver Planos</a>
+    <!-- Planos -->
+    <section id="planos" class="max-w-7xl mx-auto px-4 py-16">
+      <h2 class="text-3xl font-bold text-center mb-10">Planos IPTV</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg">
+          <h3 class="text-xl font-semibold mb-4">Mensal</h3>
+          <p class="text-3xl font-bold text-indigo-600 mb-4">R$ 30</p>
+          <ul class="space-y-2 mb-6">
+            <li>+10.000 canais</li>
+            <li>Filmes e séries</li>
+            <li>Suporte 24h</li>
+          </ul>
+          <a href="#contato" class="block text-center bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700">Assinar</a>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg">
+          <h3 class="text-xl font-semibold mb-4">Trimestral</h3>
+          <p class="text-3xl font-bold text-indigo-600 mb-4">R$ 80</p>
+          <ul class="space-y-2 mb-6">
+            <li>+10.000 canais</li>
+            <li>Filmes e séries</li>
+            <li>Suporte 24h</li>
+          </ul>
+          <a href="#contato" class="block text-center bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700">Assinar</a>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg">
+          <h3 class="text-xl font-semibold mb-4">Anual</h3>
+          <p class="text-3xl font-bold text-indigo-600 mb-4">R$ 250</p>
+          <ul class="space-y-2 mb-6">
+            <li>+10.000 canais</li>
+            <li>Filmes e séries</li>
+            <li>Suporte 24h</li>
+          </ul>
+          <a href="#contato" class="block text-center bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700">Assinar</a>
         </div>
       </div>
-      <div class="card reveal" style="background: linear-gradient(135deg, #000, #111); border: 2px solid var(--accent); box-shadow: 0 0 20px var(--accent);">
-        <h3 style="margin-top:0; color: var(--accent); text-align:center; font-size:1.8rem;">Solicitar Ativação</h3>
-        <form id="leadForm">
-          <div class="row">
-            <label>
-              <span>Seu nome</span>
-              <input required aria-required="true" name="nome" placeholder="Ex: Ana Souza" />
-            </label>
-            <label>
-              <span>Dispositivo</span>
-              <select name="device">
-                <option>Smart TV</option>
-                <option>TV Box</option>
-                <option>Android</option>
-                <option>iPhone/iPad</option>
-                <option>Computador</option>
-              </select>
-            </label>
-          </div>
-          <div class="row">
-            <label>
-              <span>Plano</span>
-              <select name="plano">
-                <option>Mensal - R$ 30,00</option>
-                <option>Trimestral - R$ 80,00</option>
-                <option>Anual - R$ 280,00</option>
-                <option>Revenda - Solicitar Créditos</option>
-              </select>
-            </label>
-            <label>
-              <span>Mensagem</span>
-              <input name="msg" placeholder="Ex: Quero teste grátis / dúvidas / revenda..." />
-            </label>
-          </div>
-          <div class="row">
-            <button class="btn" type="submit"><i class="fa-brands fa-whatsapp"></i> Enviar pelo WhatsApp</button>
-            <button class="btn ghost" type="button" id="emailBtn"><i class="fa-solid fa-envelope"></i> Enviar por E-mail</button>
-          </div>
-        </form>
+    </section>
+
+    <!-- Canais -->
+    <section id="canais" class="bg-gray-100 py-16 px-4">
+      <h2 class="text-3xl font-bold text-center mb-10">Canais Populares</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+        <div class="bg-white p-4 rounded shadow text-center">Esportes</div>
+        <div class="bg-white p-4 rounded shadow text-center">Filmes</div>
+        <div class="bg-white p-4 rounded shadow text-center">Séries</div>
+        <div class="bg-white p-4 rounded shadow text-center">Notícias</div>
       </div>
-    </div>
-  </section>
-</main>
-<footer role="contentinfo" aria-label="Rodapé">
-  <div class="container inner">
-    <small>© <span id="year"></span> Jhon Tech IPTV — Todos os direitos reservados.</small>
-    <div style="display:flex; gap:10px; align-items:center; justify-content:center; margin-top:10px;">
-      <a class="btn ghost" href="#planos"><i class="fa-solid fa-layer-group"></i> Planos</a>
-      <a class="btn" href="https://wa.me/5598981797139" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
-      <a class="btn ghost" href="#revenda"><i class="fa-solid fa-hand-holding-dollar"></i> Revenda</a>
-    </div>
-  </div>
-</footer>
-<a class="wa" href="https://wa.me/5598981797139" target="_blank" aria-label="Abrir conversa no WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-  const hamb = document.querySelector('.hamb');
-  const menu = document.getElementById('menu');
-  hamb.addEventListener('click', () => {
-    const expanded = hamb.getAttribute('aria-expanded') === 'true';
-    hamb.setAttribute('aria-expanded', !expanded);
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
+    </section>
 
-  // Menu hambúrguer
-  const hamb = document.querySelector('.hamb');
-  const menu = document.getElementById('menu');
-  hamb.addEventListener('click', () => {
-    const expanded = hamb.getAttribute('aria-expanded') === 'true';
-    hamb.setAttribute('aria-expanded', !expanded);
-    menu.hidden = expanded ? true : false;
-  });
+    <!-- Como Funciona -->
+    <section id="como-funciona" class="max-w-6xl mx-auto px-4 py-16">
+      <h2 class="text-3xl font-bold text-center mb-10">Como Funciona</h2>
+      <div class="grid md:grid-cols-3 gap-8 text-center">
+        <div class="bg-white p-6 rounded-xl shadow">
+          <h3 class="font-semibold text-xl mb-2">1. Escolha o Plano</h3>
+          <p>Selecione o plano que melhor se adapta às suas necessidades.</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow">
+          <h3 class="font-semibold text-xl mb-2">2. Faça o Pagamento</h3>
+          <p>Pagamento rápido e seguro via Pix, cartão ou boleto.</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow">
+          <h3 class="font-semibold text-xl mb-2">3. Receba o Acesso</h3>
+          <p>Ativação imediata no seu dispositivo com suporte dedicado.</p>
+        </div>
+      </div>
+    </section>
 
-  // Formulário - enviar para WhatsApp
-  const leadForm = document.getElementById('leadForm');
-  leadForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const data = new FormData(leadForm);
-    const nome = data.get('nome');
-    const device = data.get('device');
-    const plano = data.get('plano');
-    const msg = data.get('msg') || '';
+    <!-- Depoimentos -->
+    <section id="depoimentos" class="bg-gray-100 py-16 px-4">
+      <h2 class="text-3xl font-bold text-center mb-10">O que dizem nossos clientes</h2>
+      <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
+        <div class="bg-white p-6 rounded-xl shadow">
+          <p>“Melhor IPTV que já assinei, sem travar e com suporte rápido.”</p>
+          <span class="block mt-2 font-semibold">– Carlos M.</span>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow">
+          <p>“Imagem perfeita e muitos canais. Recomendo a todos.”</p>
+          <span class="block mt-2 font-semibold">– Juliana R.</span>
+        </div>
+      </div>
+    </section>
 
-    const texto = `Olá! Me chamo *${nome}* e quero ativar o IPTV.\n\n📺 Dispositivo: ${device}\n📦 Plano: ${plano}\n💬 Mensagem: ${msg}`;
-    const url = `https://wa.me/5598981797139?text=${encodeURIComponent(texto)}`;
-    window.open(url, '_blank');
-  });
+    <!-- FAQ -->
+    <section id="faq" class="max-w-4xl mx-auto px-4 py-16">
+      <h2 class="text-3xl font-bold text-center mb-10">Perguntas Frequentes</h2>
+      <div class="space-y-6">
+        <div class="bg-white p-4 rounded shadow">
+          <h3 class="font-semibold">O que é IPTV?</h3>
+          <p>É a transmissão de TV pela internet, permitindo assistir em qualquer dispositivo conectado.</p>
+        </div>
+        <div class="bg-white p-4 rounded shadow">
+          <h3 class="font-semibold">Preciso de internet rápida?</h3>
+          <p>Recomendamos no mínimo 10MB para uma boa experiência.</p>
+        </div>
+        <div class="bg-white p-4 rounded shadow">
+          <h3 class="font-semibold">Posso assistir em mais de um dispositivo?</h3>
+          <p>Sim, temos planos multi-tela sob consulta.</p>
+        </div>
+      </div>
+    </section>
 
-  // Botão de envio por e-mail
-  document.getElementById('emailBtn').addEventListener('click', () => {
-    const data = new FormData(leadForm);
-    const nome = data.get('nome');
-    const device = data.get('device');
-    const plano = data.get('plano');
-    const msg = data.get('msg') || '';
+    <!-- Contato -->
+    <section id="contato" class="bg-indigo-600 text-white py-16 px-4">
+      <h2 class="text-3xl font-bold text-center mb-8">Entre em Contato</h2>
+      <form id="formContato" class="max-w-3xl mx-auto grid gap-4">
+        <input id="nome" type="text" placeholder="Seu nome" required class="p-3 rounded text-black" />
+        <input id="device" type="text" placeholder="Dispositivo (ex: Smart TV, Celular)" required class="p-3 rounded text-black" />
+        <select id="plano" required class="p-3 rounded text-black">
+          <option value="">Selecione o plano</option>
+          <option>Mensal</option>
+          <option>Trimestral</option>
+          <option>Anual</option>
+        </select>
+        <textarea id="msg" rows="4" placeholder="Sua mensagem" class="p-3 rounded text-black"></textarea>
+        <button type="submit" class="bg-white text-indigo-600 py-3 rounded-lg font-semibold hover:bg-gray-200">Enviar</button>
+      </form>
+    </section>
+  </main>
 
-    const subject = `Ativação IPTV - ${nome}`;
-    const body = `Nome: ${nome}\nDispositivo: ${device}\nPlano: ${plano}\nMensagem: ${msg}`;
-    window.location.href = `mailto:suportejhontech@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  });
-</script>
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white text-center py-6">
+    <p>&copy; 2025 Jhon Tech IPTV. Todos os direitos reservados.</p>
+  </footer>
+
+  <script>
+    // Menu mobile toggle
+    document.getElementById("menuBtn").addEventListener("click", function () {
+      const menu = document.getElementById("mobileMenu");
+      menu.classList.toggle("hidden");
+    });
+
+    // Envio via WhatsApp
+    document.getElementById("formContato").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const nome = document.getElementById("nome").value;
+      const device = document.getElementById("device").value;
+      const plano = document.getElementById("plano").value;
+      const msg = document.getElementById("msg").value;
+
+      const phone = "5511999999999"; // Substitua pelo seu número com DDD
+      const text = `Ativação IPTV%0A` +
+        `Nome: ${nome}%0A` +
+        `Dispositivo: ${device}%0A` +
+        `Plano: ${plano}%0A` +
+        `Mensagem: ${msg}`;
+
+      window.open(`https://wa.me/${phone}?text=${text}`, "_blank");
+    });
+  </script>
+</body>
+</html>

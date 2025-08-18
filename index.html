@@ -4,164 +4,220 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Jhon Tech IPTV — O Futuro do Streaming</title>
-  <meta name="description" content="Canais, filmes e séries com estabilidade e qualidade premium. Planos flexíveis, suporte rápido e acesso imediato via WhatsApp." />
-  <meta name="keywords" content="IPTV, streaming, canais, filmes, séries, esportes, Jhon Tech, TV online, planos IPTV, assistir futebol" />
+  <meta name="description" content="Canais, filmes e séries com estabilidade e qualidade premium. Planos flexíveis, suporte rápido e acesso imediato via WhatsApp. Seja revendedor e aumente seus ganhos!" />
+  <meta name="keywords" content="IPTV, streaming, canais, filmes, séries, esportes, Jhon Tech, TV online, planos IPTV, assistir futebol, revenda IPTV" />
   <meta name="theme-color" content="#22d3ee" />
   <link rel="canonical" href="https://SEU-USUARIO.github.io/SEU-REPOSITORIO/" />
+  <link rel="icon" href="favicon.ico" />
 
   <!-- Open Graph / Twitter -->
   <meta property="og:title" content="Jhon Tech IPTV — O Futuro do Streaming" />
-  <meta property="og:description" content="Assista com qualidade e estabilidade. Planos acessíveis e suporte imediato." />
+  <meta property="og:description" content="Assista com qualidade e estabilidade. Planos acessíveis, suporte imediato e oportunidade de revenda." />
   <meta property="og:image" content="logo-jhon-tech.webp" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://SEU-USUARIO.github.io/SEU-REPOSITORIO/" />
   <meta property="og:site_name" content="Jhon Tech IPTV" />
-
-  <!-- Meta Pixel (preencha META_PIXEL_ID para ativar) -->
-  <script>
-    const META_PIXEL_ID = ""; // ex: '123456789012345'
-    if (META_PIXEL_ID) {
-      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-      document,'script','https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init', META_PIXEL_ID); fbq('track', 'PageView');
-    }
-  </script>
+  <meta name="twitter:card" content="summary_large_image" />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap" rel="stylesheet" />
-  <link rel="preload" as="image" href="logo-jhon-tech.webp" />
 
   <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <style>
-    /* Mantive todo o CSS original (sem alterações no design) */
+    :root {
+      --primary: #22d3ee;
+      --secondary: #00ffff;
+      --accent: #ffcc00;
+      --panel-2: #111;
+      --panel-1: #000;
+      --text-light: #fff;
+      --btn-radius: 12px;
+      --shadow: 0 8px 20px rgba(34, 211, 238, 0.3);
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; font-family: 'Orbitron', sans-serif; background: linear-gradient(135deg, #000, #111); color: var(--text-light); overflow-x: hidden; scroll-behavior: smooth; }
+    a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
+    a:hover, a:focus { color: var(--primary); transform: scale(1.05); }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 15px; }
+    header { background: rgba(17,17,17,0.95); padding: 15px 0; position: sticky; top: 0; z-index: 1000; box-shadow: var(--shadow); }
+    .brand img { height: 60px; vertical-align: middle; transition: transform 0.3s; }
+    .brand img:hover { transform: scale(1.15); }
+    nav .menu { display: flex; flex-wrap: wrap; gap: 10px; justify-content: flex-end; align-items: center; }
+    nav .menu a.btn { background: var(--primary); color: #000; padding: 10px 25px; border-radius: var(--btn-radius); font-weight: bold; text-transform: uppercase; box-shadow: var(--shadow); }
+    nav .menu a.btn.ghost { background: transparent; border: 2px solid var(--primary); color: var(--primary); }
+
+    .hero { padding: 120px 20px; text-align: center; position: relative; z-index: 10; background: radial-gradient(circle at center, rgba(34,211,238,0.2), transparent); border-radius: var(--btn-radius); box-shadow: var(--shadow); }
+    .hero h1 { font-size: 3rem; margin-bottom: 20px; color: var(--secondary); text-shadow: 0 0 10px var(--primary); }
+    .hero p { font-size: 1.3rem; margin-bottom: 30px; line-height: 1.5; }
+    .cta-wrap .btn { margin: 8px; transition: transform 0.3s, box-shadow 0.3s; }
+    .cta-wrap .btn:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+
+    #planos { display: flex; flex-wrap: wrap; justify-content: center; gap: 25px; margin: 60px 0; }
+    .plano-card { background: linear-gradient(135deg, #111, #222); padding: 25px; border-radius: var(--btn-radius); width: 280px; text-align: center; transition: transform 0.3s, box-shadow 0.3s; cursor: pointer; box-shadow: var(--shadow); border: 1px solid rgba(34,211,238,0.3); }
+    .plano-card:hover { transform: translateY(-10px) scale(1.05); box-shadow: 0 12px 30px rgba(34,211,238,0.6); }
+    .plano-card h3 { margin-top: 0; font-size: 1.5rem; color: var(--primary); }
+    .plano-card p { margin: 12px 0; font-size: 1.1rem; line-height: 1.4; }
+
+    section#contato { margin: 60px 0; }
+    .card { background: rgba(17,17,17,0.85); padding: 20px; border-radius: var(--btn-radius); box-shadow: var(--shadow); transition: transform 0.3s, box-shadow 0.3s; }
+    .card:hover { transform: translateY(-5px); box-shadow: 0 12px 30px rgba(34,211,238,0.6); }
+
+    /* Destaque Solicitar Ativação */
+    #leadForm { display: flex; flex-direction: column; gap: 15px; }
+    #leadForm .row { display: flex; flex-wrap: wrap; gap: 15px; }
+    #leadForm label { flex: 1; display: flex; flex-direction: column; }
+    #leadForm input, #leadForm select { padding: 12px 15px; border-radius: var(--btn-radius); border: 1px solid var(--primary); background: #000; color: var(--text-light); font-size: 1rem; }
+    #leadForm input:focus, #leadForm select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 10px var(--accent); }
+    #leadForm button { font-size: 1.1rem; padding: 12px; }
+    #leadForm .btn { width: 100%; display: flex; justify-content: center; align-items: center; gap: 8px; }
+
+    footer { background: rgba(17,17,17,0.95); padding: 40px 0; text-align: center; box-shadow: var(--shadow); }
+    .wa { position: fixed; bottom: 30px; right: 30px; background: var(--primary); color: #000; padding: 18px; border-radius: 50%; font-size: 28px; z-index: 9999; box-shadow: 0 0 20px rgba(34,211,238,0.7); transition: transform 0.3s; }
+    .wa:hover { transform: scale(1.15); }
+    .skip { position: absolute; top: -50px; left: 0; background: var(--primary); color: #000; padding: 12px; z-index: 1000; border-radius: var(--btn-radius); }
+    .skip:focus { top: 10px; }
+
+    @media (max-width: 768px) { nav .menu { flex-direction: column; } .hero h1 { font-size: 2.2rem; } .hero p { font-size: 1.1rem; } #planos { flex-direction: column; } .plano-card { width: 90%; } }
   </style>
 </head>
 <body>
-  <a class="skip" href="#conteudo">Ir para o conteúdo principal</a>
-
-  <!-- Background effects -->
-  <canvas id="bg" aria-hidden="true"></canvas>
-  <div class="bg-glow" aria-hidden="true"></div>
-
-  <!-- HEADER -->
-  <header role="banner">
-    <div class="container nav">
-      <div class="brand">
-        <img src="logo-jhon-tech.webp" alt="Logo Jhon Tech IPTV" loading="lazy" />
-        <b>Jhon Tech IPTV</b>
-      </div>
-      <nav aria-label="Menu principal">
-        <button class="hamb btn ghost" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu de navegação">
-          <i class="fa-solid fa-bars"></i>
-        </button>
-        <div id="menu" class="menu">
-          <a href="#planos">Planos</a>
-          <a href="#canais">Canais</a>
-          <a href="#como-funciona">Como funciona</a>
-          <a href="#depoimentos">Depoimentos</a>
-          <a href="#faq">FAQ</a>
-          <a href="#contato">Contato</a>
-          <a class="btn" data-wa>WhatsApp</a>
-        </div>
-      </nav>
+<a class="skip" href="#conteudo">Ir para o conteúdo principal</a>
+<canvas id="bg" aria-hidden="true"></canvas>
+<header role="banner">
+  <div class="container nav">
+    <div class="brand">
+      <img src="logo-jhon-tech.webp" alt="Logo Jhon Tech IPTV" loading="lazy" />
+      <b>Jhon Tech IPTV</b>
     </div>
-  </header>
-
-  <main id="conteudo">
-    <!-- HERO -->
-    <section class="hero container">
-      <h1 class="reveal">O Futuro do Streaming Está Aqui</h1>
-      <p class="reveal">Tecnologia avançada, estabilidade e entretenimento ilimitado. Clique e fale com a Jhon Tech para ativar seu acesso agora mesmo.</p>
-      <div class="cta-wrap reveal">
-        <a class="btn" data-wa><i class="fa-brands fa-whatsapp"></i> Começar Agora</a>
-        <a href="#planos" class="btn ghost"><i class="fa-solid fa-bolt"></i> Ver Planos</a>
+    <nav aria-label="Menu principal">
+      <button class="hamb btn ghost" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu de navegação">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <div id="menu" class="menu" hidden>
+        <a href="#planos">Planos</a>
+        <a href="#canais">Canais</a>
+        <a href="#como-funciona">Como funciona</a>
+        <a href="#depoimentos">Depoimentos</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contato">Contato</a>
+        <a class="btn" href="https://wa.me/5598981797139" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+        <a class="btn ghost" href="#revenda"><i class="fa-solid fa-hand-holding-dollar"></i> Seja Revendedor</a>
       </div>
-    </section>
+    </nav>
+  </div>
+</header>
+<main id="conteudo">
+  <section class="hero container">
+    <h1 class="reveal">O Futuro do Streaming Está Aqui</h1>
+    <p class="reveal">Tecnologia avançada, estabilidade e entretenimento ilimitado. Clique e fale com a Jhon Tech para ativar seu acesso agora mesmo.</p>
+    <div class="cta-wrap reveal">
+      <a class="btn" href="https://wa.me/5598981797139" target="_blank"><i class="fa-brands fa-whatsapp"></i> Começar Agora</a>
+      <a href="#planos" class="btn ghost"><i class="fa-solid fa-bolt"></i> Ver Planos</a>
+      <a href="#revenda" class="btn ghost"><i class="fa-solid fa-hand-holding-dollar"></i> Seja Revendedor</a>
+    </div>
+  </section>
+  <section id="planos" class="container">
+    <div class="plano-card">
+      <h3>Mensal</h3>
+      <p>R$ 30,00 / mês</p>
+      <p>Acesso completo a todos os canais</p>
+    </div>
+    <div class="plano-card">
+      <h3>Trimestral</h3>
+      <p>R$ 80,00 / 3 meses</p>
+      <p>Economize e aproveite a qualidade premium</p>
+    </div>
+    <div class="plano-card">
+      <h3>Anual</h3>
+      <p>R$ 280,00 / ano</p>
+      <p>Melhor custo-benefício e suporte prioritário</p>
+    </div>
+  </section>
 
-    <!-- (Mantive todos os blocos de conteúdo, só adicionei melhorias pequenas de acessibilidade e lazy-loading onde tinha imagem) -->
+  <section id="revenda" class="container">
+    <h2 class="center reveal">Seja um Revendedor</h2>
+    <div class="plano-card">
+      <h3>Revenda Jhon Tech</h3>
+      <p>Comece com 10 créditos por apenas R$ 70,00</p>
+      <p>Ganhe descontos progressivos até 180 créditos</p>
+      <p>Suporte exclusivo e painel de gestão de clientes</p>
+      <a class="btn" href="https://wa.me/5598981797139" target="_blank"><i class="fa-brands fa-whatsapp"></i> Solicitar Revenda</a>
+    </div>
+  </section>
 
-    <!-- CONTATO -->
-    <section id="contato" class="contact container">
-      <h2 class="center reveal">Entre em Contato</h2>
-      <div class="wrap">
-        <div class="card simple reveal">
-          <p><strong>WhatsApp:</strong> <a href="#" data-wa>(98) 98179-7139</a></p>
-          <p>Suporte e ativação imediata. Clique para abrir a conversa.</p>
-          <div style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap">
-            <a class="btn" data-wa><i class="fa-brands fa-whatsapp"></i> Falar no WhatsApp</a>
-            <a href="#planos" class="btn ghost"><i class="fa-solid fa-tags"></i> Ver Planos</a>
+  <section id="contato" class="contact container">
+    <h2 class="center reveal">Entre em Contato</h2>
+    <div class="wrap">
+      <div class="card simple reveal">
+        <p><strong>WhatsApp:</strong> <a href="https://wa.me/5598981797139" target="_blank">(98) 98179-7139</a></p>
+        <p>Suporte e ativação imediata. Clique para abrir a conversa.</p>
+        <div style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap">
+          <a class="btn" href="https://wa.me/5598981797139" target="_blank"><i class="fa-brands fa-whatsapp"></i> Falar no WhatsApp</a>
+          <a href="#planos" class="btn ghost"><i class="fa-solid fa-tags"></i> Ver Planos</a>
+        </div>
+      </div>
+      <div class="card reveal" style="background: linear-gradient(135deg, #000, #111); border: 2px solid var(--accent); box-shadow: 0 0 20px var(--accent);">
+        <h3 style="margin-top:0; color: var(--accent); text-align:center; font-size:1.8rem;">Solicitar Ativação</h3>
+        <form id="leadForm">
+          <div class="row">
+            <label>
+              <span>Seu nome</span>
+              <input required aria-required="true" name="nome" placeholder="Ex: Ana Souza" />
+            </label>
+            <label>
+              <span>Dispositivo</span>
+              <select name="device">
+                <option>Smart TV</option>
+                <option>TV Box</option>
+                <option>Android</option>
+                <option>iPhone/iPad</option>
+                <option>Computador</option>
+              </select>
+            </label>
           </div>
-        </div>
-
-        <!-- Form que envia para WhatsApp e fallback e-mail -->
-        <div class="card reveal" style="background:var(--panel-2)">
-          <h3 style="margin-top:0">Solicitar Ativação</h3>
-          <form id="leadForm">
-            <div class="row">
-              <label>
-                <span>Seu nome</span>
-                <input required aria-required="true" name="nome" placeholder="Ex: Ana Souza" />
-              </label>
-              <label>
-                <span>Dispositivo</span>
-                <select name="device">
-                  <option>Smart TV</option>
-                  <option>TV Box</option>
-                  <option>Android</option>
-                  <option>iPhone/iPad</option>
-                  <option>Computador</option>
-                </select>
-              </label>
-            </div>
-            <div class="row">
-              <label>
-                <span>Plano</span>
-                <select name="plano">
-                  <option>Mensal - R$ 30,00</option>
-                  <option>Trimestral - R$ 80,00</option>
-                  <option>Anual - R$ 280,00</option>
-                </select>
-              </label>
-              <label>
-                <span>Mensagem</span>
-                <input name="msg" placeholder="Ex: Quero teste grátis / dúvidas..." />
-              </label>
-            </div>
-            <div class="row">
-              <button class="btn" type="submit"><i class="fa-brands fa-whatsapp"></i> Enviar pelo WhatsApp</button>
-              <button class="btn ghost" type="button" id="emailBtn"><i class="fa-solid fa-envelope"></i> Enviar por E-mail</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- FOOTER -->
-  <footer role="contentinfo">
-    <div class="container inner">
-      <small>© <span id="year"></span> Jhon Tech IPTV — Todos os direitos reservados.</small>
-      <div style="display:flex; gap:10px; align-items:center">
-        <a class="btn ghost" href="#planos"><i class="fa-solid fa-layer-group"></i> Planos</a>
-        <a class="btn" data-wa><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+          <div class="row">
+            <label>
+              <span>Plano</span>
+              <select name="plano">
+                <option>Mensal - R$ 30,00</option>
+                <option>Trimestral - R$ 80,00</option>
+                <option>Anual - R$ 280,00</option>
+                <option>Revenda - Solicitar Créditos</option>
+              </select>
+            </label>
+            <label>
+              <span>Mensagem</span>
+              <input name="msg" placeholder="Ex: Quero teste grátis / dúvidas / revenda..." />
+            </label>
+          </div>
+          <div class="row">
+            <button class="btn" type="submit"><i class="fa-brands fa-whatsapp"></i> Enviar pelo WhatsApp</button>
+            <button class="btn ghost" type="button" id="emailBtn"><i class="fa-solid fa-envelope"></i> Enviar por E-mail</button>
+          </div>
+        </form>
       </div>
     </div>
-  </footer>
-
-  <!-- Floating WhatsApp -->
-  <a class="wa" data-wa aria-label="Abrir conversa no WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-
-  <!-- JSON-LD (mantive igual, já estava correto) -->
-
-  <script>
-    /* Mantive todo o JS original (funcional, bem escrito) */
-  </script>
-</body>
-</html>
+  </section>
+</main>
+<footer role="contentinfo" aria-label="Rodapé">
+  <div class="container inner">
+    <small>© <span id="year"></span> Jhon Tech IPTV — Todos os direitos reservados.</small>
+    <div style="display:flex; gap:10px; align-items:center; justify-content:center; margin-top:10px;">
+      <a class="btn ghost" href="#planos"><i class="fa-solid fa-layer-group"></i> Planos</a>
+      <a class="btn" href="https://wa.me/5598981797139" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+      <a class="btn ghost" href="#revenda"><i class="fa-solid fa-hand-holding-dollar"></i> Revenda</a>
+    </div>
+  </div>
+</footer>
+<a class="wa" href="https://wa.me/5598981797139" target="_blank" aria-label="Abrir conversa no WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  const hamb = document.querySelector('.hamb');
+  const menu = document.getElementById('menu');
+  hamb.addEventListener('click', () => {
+    const expanded = hamb.getAttribute('aria-expanded') === 'true';
+    hamb.setAttribute('aria-expanded', !expanded);

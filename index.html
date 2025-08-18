@@ -5,15 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Jhon Tech IPTV — Futuro do Streaming</title>
   <meta name="description" content="Canais, filmes e séries com estabilidade e qualidade. Planos flexíveis, suporte rápido e acesso imediato. Clique e fale direto no WhatsApp." />
+  
+  <!-- Google Fonts (Orbitron) -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.4/base.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.4/components.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.4/utilities.min.css" rel="stylesheet">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Jhon Tech IPTV — O Futuro do Streaming" />
+  <meta property="og:description" content="Assista canais, filmes e séries com estabilidade e qualidade premium." />
+  <meta property="og:image" content="Logo-jhon-tech.webp" />
+  <meta property="og:type" content="website" />
+
   <style>
     body {
       background: radial-gradient(circle at top, #0a0f1f, #05070d 80%);
       color: #e0f2ff;
       font-family: 'Orbitron', sans-serif;
     }
+
+    /* Efeito Shine */
     .shine {
       position: relative;
       overflow: hidden;
@@ -31,6 +45,33 @@
       0% { transform: translateX(-60%) translateY(-60%) rotate(15deg); }
       100% { transform: translateX(60%) translateY(60%) rotate(15deg); }
     }
+
+    /* Hover futurista */
+    .card:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+      transition: all 0.3s ease-in-out;
+    }
+
+    .cta {
+      transition: all 0.3s ease-in-out;
+    }
+    .cta:hover {
+      background: #22d3ee;
+      box-shadow: 0 0 25px rgba(34, 211, 238, 0.8);
+      transform: scale(1.05);
+    }
+
+    /* Botão flutuante WhatsApp */
+    .floating-whatsapp {
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(34,211,238,0.7); }
+      70% { transform: scale(1.1); box-shadow: 0 0 20px 10px rgba(34,211,238,0); }
+      100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(34,211,238,0); }
+    }
+
     body, a, button, .clickable { cursor: pointer; }
   </style>
 </head>
@@ -39,7 +80,7 @@
   <script>
     const WA_LINK = "https://wa.me/message/HF7DJWNQRHYZA1";
     document.addEventListener('click', (e) => {
-      const target = e.target.closest('[data-wa], a, button, .card, .cta');
+      const target = e.target.closest('[data-wa], a.cta, .card, .floating-whatsapp');
       if (target && !target.hasAttribute('data-no-wa')) {
         window.open(WA_LINK, '_blank');
         e.preventDefault();
@@ -51,7 +92,7 @@
   <header class="sticky top-0 z-50 backdrop-blur bg-black/70 border-b border-cyan-500/40">
     <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
       <div class="flex items-center gap-2">
-        <img src="Logo jhon tech.jpg" alt="Logo Jhon Tech" class="w-12 h-12 rounded-full border border-cyan-400/40">
+        <img src="Logo-jhon-tech.webp" alt="Logo Jhon Tech" class="w-12 h-12 rounded-full border border-cyan-400/40">
         <span class="font-extrabold tracking-widest text-cyan-300 text-lg">Jhon Tech IPTV</span>
       </div>
       <nav class="hidden md:flex items-center gap-6 text-sm font-semibold text-cyan-200">
@@ -60,7 +101,7 @@
         <a href="#depoimentos" class="hover:text-white">Depoimentos</a>
         <a href="#faq" class="hover:text-white">FAQ</a>
         <a href="#contato" class="hover:text-white">Contato</a>
-        <a class="px-4 py-2 rounded-xl bg-cyan-400 text-black font-bold shadow-lg shadow-cyan-400/40">WhatsApp</a>
+        <a class="cta px-4 py-2 rounded-xl bg-cyan-400 text-black font-bold shadow-lg shadow-cyan-400/40">WhatsApp</a>
       </nav>
     </div>
   </header>
@@ -68,7 +109,7 @@
   <!-- CAPA FUTURISTA -->
   <section class="relative overflow-hidden text-center py-20 bg-gradient-to-b from-cyan-900/20 via-black to-black">
     <div class="max-w-5xl mx-auto">
-      <img src="Logo jhon tech.jpg" alt="Logo Futurista Jhon Tech" class="mx-auto w-48 h-48 animate-pulse">
+      <img src="Logo-jhon-tech.webp" alt="Logo Futurista Jhon Tech" class="mx-auto w-48 h-48 animate-pulse" loading="lazy">
       <h1 class="text-5xl md:text-6xl font-extrabold text-cyan-300 drop-shadow-lg mt-6">O Futuro do Streaming Está Aqui</h1>
       <p class="mt-4 text-cyan-100 text-lg">Tecnologia avançada, estabilidade e entretenimento ilimitado em suas mãos.</p>
       <a class="cta mt-8 inline-block px-8 py-4 rounded-2xl bg-cyan-400 text-black font-bold text-lg shadow-lg shadow-cyan-400/40">Começar Agora</a>
@@ -84,31 +125,37 @@
           <h3 class="text-xl font-bold text-cyan-200">Mensal</h3>
           <p class="text-4xl font-extrabold mt-4 text-white">R$ 30,00</p>
           <p class="text-sm mt-2 text-cyan-100">Ideal para testar a qualidade.</p>
+          <a class="cta mt-4 inline-block px-6 py-3 rounded-xl bg-cyan-400 text-black font-bold shadow-md shadow-cyan-400/40">Assinar</a>
         </article>
         <article class="card rounded-2xl border border-cyan-400/40 bg-black/70 p-6 text-center">
           <h3 class="text-xl font-bold text-cyan-200">2 Meses</h3>
           <p class="text-4xl font-extrabold mt-4 text-white">R$ 60,00</p>
           <p class="text-sm mt-2 text-cyan-100">Mais economia e praticidade.</p>
+          <a class="cta mt-4 inline-block px-6 py-3 rounded-xl bg-cyan-400 text-black font-bold shadow-md shadow-cyan-400/40">Assinar</a>
         </article>
         <article class="card rounded-2xl border border-cyan-400/40 bg-black/70 p-6 text-center">
           <h3 class="text-xl font-bold text-cyan-200">Trimestral</h3>
           <p class="text-4xl font-extrabold mt-4 text-white">R$ 80,00</p>
           <p class="text-sm mt-2 text-cyan-100">Nosso plano mais popular.</p>
+          <a class="cta mt-4 inline-block px-6 py-3 rounded-xl bg-cyan-400 text-black font-bold shadow-md shadow-cyan-400/40">Assinar</a>
         </article>
         <article class="card rounded-2xl border border-cyan-400/40 bg-black/70 p-6 text-center">
           <h3 class="text-xl font-bold text-cyan-200">Quadrimestral</h3>
           <p class="text-4xl font-extrabold mt-4 text-white">R$ 110,00</p>
           <p class="text-sm mt-2 text-cyan-100">Ótimo custo-benefício.</p>
+          <a class="cta mt-4 inline-block px-6 py-3 rounded-xl bg-cyan-400 text-black font-bold shadow-md shadow-cyan-400/40">Assinar</a>
         </article>
         <article class="card rounded-2xl border border-cyan-400/40 bg-black/70 p-6 text-center">
           <h3 class="text-xl font-bold text-cyan-200">6 Meses</h3>
           <p class="text-4xl font-extrabold mt-4 text-white">R$ 160,00</p>
           <p class="text-sm mt-2 text-cyan-100">Mais estabilidade e vantagens.</p>
+          <a class="cta mt-4 inline-block px-6 py-3 rounded-xl bg-cyan-400 text-black font-bold shadow-md shadow-cyan-400/40">Assinar</a>
         </article>
         <article class="card rounded-2xl border border-cyan-400/40 bg-black/70 p-6 text-center">
           <h3 class="text-xl font-bold text-cyan-200">1 Ano</h3>
           <p class="text-4xl font-extrabold mt-4 text-white">R$ 280,00</p>
           <p class="text-sm mt-2 text-cyan-100">Máxima economia e confiança.</p>
+          <a class="cta mt-4 inline-block px-6 py-3 rounded-xl bg-cyan-400 text-black font-bold shadow-md shadow-cyan-400/40">Assinar</a>
         </article>
       </div>
     </div>
@@ -147,10 +194,6 @@
         <div class="p-6 bg-black/70 rounded-2xl border border-cyan-400/30">⭐⭐⭐⭐⭐ “Recomendo muito, estável e ótimo suporte.” – Pedro M.</div>
         <div class="p-6 bg-black/70 rounded-2xl border border-cyan-400/30">⭐⭐⭐⭐⭐ “Filmes e séries atualizados sempre, amei.” – Camila F.</div>
         <div class="p-6 bg-black/70 rounded-2xl border border-cyan-400/30">⭐⭐⭐⭐⭐ “Consegui assistir todos os jogos sem travar.” – João V.</div>
-        <div class="p-6 bg-black/70 rounded-2xl border border-cyan-400/30">⭐⭐⭐⭐⭐ “Super confiável, já renovei várias vezes.” – Fernanda S.</div>
-        <div class="p-6 bg-black/70 rounded-2xl border border-cyan-400/30">⭐⭐⭐⭐⭐ “Fácil de usar até na TV Box antiga.” – Ricardo T.</div>
-        <div class="p-6 bg-black/70 rounded-2xl border border-cyan-400/30">⭐⭐⭐⭐⭐ “Recomendei pra família toda, todos gostaram.” – Luana C.</div>
-        <div class="p-6 bg-black/70 rounded-2xl border border-cyan-400/30">⭐⭐⭐⭐⭐ “O melhor custo-benefício que encontrei.” – André B.</div>
       </div>
     </div>
   </section>
@@ -190,7 +233,8 @@
     <p>© <span id="year"></span> Jhon Tech IPTV — O Futuro do Streaming. Todos os direitos reservados.</p>
   </footer>
 
-  <a class="fixed bottom-5 right-5 rounded-full w-16 h-16 grid place-items-center bg-cyan-400 text-black text-2xl shadow-xl shadow-cyan-400/30">💬</a>
+  <!-- Botão Flutuante WhatsApp -->
+  <a class="floating-whatsapp fixed bottom-5 right-5 rounded-full w-16 h-16 grid place-items-center bg-cyan-400 text-black text-2xl shadow-xl shadow-cyan-400/30">💬</a>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();

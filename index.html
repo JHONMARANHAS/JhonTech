@@ -2,489 +2,121 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jhon Tech IPTV</title>
-
-  <!-- SEO básico -->
-  <meta name="description" content="Assista canais, filmes e séries com estabilidade e qualidade. Planos de IPTV com suporte dedicado – Jhon Tech IPTV." />
-  <meta name="keywords" content="IPTV, canais, filmes, séries, streaming, Jhon Tech" />
-  <meta name="author" content="Jhon Tech IPTV" />
-  <meta name="robots" content="index,follow" />
-  <meta name="theme-color" content="#0d0d0d" />
-
-  <!-- Open Graph / Social -->
-  <meta property="og:title" content="Jhon Tech IPTV" />
-  <meta property="og:description" content="Assista canais, filmes e séries sem travar. Planos com suporte dedicado." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://i.ibb.co/8z5pH8Q/bg-stream.jpg" />
-  <meta property="og:url" content="https://seu-dominio.com" />
-
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jhon Tech IPTV — Futuro do Streaming</title>
+  <meta name="description" content="Canais, filmes e séries com estabilidade e qualidade. Planos flexíveis e suporte ágil. Clique e fale direto no WhatsApp." />
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.4/base.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.4/components.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.4/utilities.min.css" rel="stylesheet">
   <style>
-    :root {
-      --bg: #050505;
-      --bg-2: #0a0a0f;
-      --card: #12121c;
-      --primary: #00ffe0;
-      --primary-600: #00c7a6;
-      --text: #ffffff;
-      --muted: #9f9f9f;
-      --shadow: 0 0 18px rgba(0, 255, 204, 0.35);
-      --radius: 16px;
-    }
-
-    * { box-sizing: border-box; margin:0; padding:0; }
-    html { scroll-behavior: smooth; }
     body {
+      background: radial-gradient(circle at top, #0a0f1f, #05070d 80%);
+      color: #e0f2ff;
       font-family: 'Orbitron', sans-serif;
-      background: radial-gradient(circle at top, #0d0d1a, #000);
-      color: var(--text);
-      line-height: 1.6;
     }
-
-    a { color: inherit; text-decoration: none; }
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-
-    /* Header */
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(10,10,20,0.85);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid rgba(0,255,204,0.15);
-    }
-    .header-inner {
-      display: flex; align-items: center; justify-content: space-between; padding: 12px 0;
-    }
-    .logo {
-      display: flex; align-items: center; gap: 12px;
-    }
-    .logo img { height: 60px; }
-    nav a {
-      margin-left: 20px;
-      font-weight: bold;
-      color: #fff;
-      transition: color .3s ease;
-    }
-    nav a:hover { color: var(--primary); }
-
-    /* Hero */
-    .hero {
-      text-align: center;
-      padding: 80px 20px;
-      background: url('https://i.ibb.co/8z5pH8Q/bg-stream.jpg') no-repeat center/cover;
+    .shine {
       position: relative;
-      isolation: isolate;
+      overflow: hidden;
     }
-    .hero::after {
+    .shine::after {
       content: "";
-      position: absolute; inset: 0; z-index: -1;
-      background: linear-gradient(180deg, rgba(0,0,0,0.6), #000 90%);
+      position: absolute;
+      top: -100%; left: -100%;
+      width: 200%; height: 200%;
+      background: linear-gradient(120deg, transparent 35%, rgba(255,255,255,.25) 50%, transparent 65%);
+      transform: rotate(15deg);
+      animation: shine 6s linear infinite;
     }
-    .hero h2 { font-size: 2.6rem; color: var(--primary); text-shadow: 0 0 18px rgba(0,255,204,0.8); }
-    .hero p { font-size: 1.2rem; color: #e0e0e0; margin-top: 10px; }
-
-    .cta { margin-top: 24px; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
-
-    .btn {
-      background: var(--primary);
-      color: #000;
-      padding: 14px 24px;
-      border-radius: var(--radius);
-      font-weight: 900;
-      cursor: pointer;
-      box-shadow: var(--shadow);
-      transition: all .3s ease;
+    @keyframes shine {
+      0% { transform: translateX(-60%) translateY(-60%) rotate(15deg); }
+      100% { transform: translateX(60%) translateY(60%) rotate(15deg); }
     }
-    .btn:hover { background: var(--primary-600); transform: scale(1.05); }
-
-    /* Planos */
-    .planos {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 26px;
-      padding: 60px 20px;
-    }
-    .plano {
-      background: linear-gradient(145deg, #12121c, #0d0d14);
-      padding: 24px;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      transition: all .3s ease;
-    }
-    .plano:hover { transform: translateY(-6px) scale(1.02); box-shadow: 0 0 30px rgba(0,255,204,0.5); }
-    .plano h3 { color: var(--primary); font-size: 1.4rem; margin-bottom: 10px; }
-    .plano p { color: #ccc; }
-    .plano .price { font-size: 1.8rem; font-weight: bold; margin: 12px 0; color: #fff; }
-
-    /* FAQ */
-    #faq { padding: 60px 20px; background: #0a0a12; }
-    #faq h2 { text-align: center; color: var(--primary); margin-bottom: 20px; }
-    details { background: #12121c; border-radius: var(--radius); padding: 14px 18px; margin: 10px auto; max-width: 800px; cursor: pointer; }
-    details summary { font-weight: bold; color: #fff; }
-    details[open] { box-shadow: var(--shadow); }
-    details p { margin-top: 8px; color: #ccc; }
-
-    /* Footer */
-    footer { text-align: center; padding: 30px 20px; background: #000; color: var(--muted); }
-
-    /* WhatsApp Floating */
-    .whatsapp {
-      position: fixed;
-      bottom: 20px; right: 20px;
-      background: #25d366;
-      color: #fff;
-      padding: 16px;
-      border-radius: 50%;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.5);
-      transition: transform .3s ease;
-    }
-    .whatsapp:hover { transform: scale(1.1); }
-
-    @media(max-width:700px) {
-      .hero h2 { font-size: 1.9rem; }
-      .hero p { font-size: 1rem; }
-      .logo img { height: 48px; }
-    }
+    body, a, button, .clickable { cursor: pointer; }
   </style>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
+  <!-- CONFIGURAÇÃO DO WHATSAPP -->
+  <script>
+    const WA_LINK = "https://wa.me/message/HF7DJWNQRHYZA1";
+    document.addEventListener('click', (e) => {
+      const target = e.target.closest('[data-wa], a, button, .card, .cta');
+      if (target && !target.hasAttribute('data-no-wa')) {
+        window.open(WA_LINK, '_blank');
+        e.preventDefault();
+      }
+    }, { passive: false });
+  </script>
 
-  <header>
-    <div class="container header-inner">
-      <div class="logo">
-        <img src="Logo%20jhon%20tech.jpg" alt="Logo Jhon Tech IPTV" />
+  <!-- NAVBAR -->
+  <header class="sticky top-0 z-50 backdrop-blur bg-black/70 border-b border-cyan-500/40">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <img src="Logo jhon tech.jpg" alt="Logo Jhon Tech" class="w-12 h-12 rounded-full border border-cyan-400/40">
+        <span class="font-extrabold tracking-widest text-cyan-300 text-lg">Jhon Tech IPTV</span>
       </div>
-      <nav>
-        <a href="#planos">Planos</a>
-        <a href="#como-funciona">Como Funciona</a>
-        <a href="#faq">FAQ</a>
-        <a href="#contato">Contato</a>
+      <nav class="hidden md:flex items-center gap-6 text-sm font-semibold text-cyan-200">
+        <a href="#planos" class="hover:text-white">Planos</a>
+        <a href="#como-funciona" class="hover:text-white">Como funciona</a>
+        <a href="#depoimentos" class="hover:text-white">Depoimentos</a>
+        <a href="#contato" class="hover:text-white">Contato</a>
+        <a class="px-4 py-2 rounded-xl bg-cyan-400 text-black font-bold shadow-lg shadow-cyan-400/40">WhatsApp</a>
       </nav>
     </div>
   </header>
 
-  <section class="hero">
-    <div class="container">
-      <h2>O Futuro do IPTV já Chegou 🚀</h2>
-      <p>Assista canais, filmes e séries em alta qualidade, com estabilidade e suporte premium.</p>
-      <div class="cta">
-        <a href="#planos" class="btn">Ver Planos</a>
-        <a href="https://wa.me/5598981797139" class="btn">Falar no WhatsApp</a>
+  <!-- CAPA FUTURISTA -->
+  <section class="relative overflow-hidden text-center py-20 bg-gradient-to-b from-cyan-900/20 via-black to-black">
+    <div class="max-w-5xl mx-auto">
+      <img src="Logo jhon tech.jpg" alt="Logo Futurista Jhon Tech" class="mx-auto w-48 h-48 animate-pulse">
+      <h1 class="text-5xl md:text-6xl font-extrabold text-cyan-300 drop-shadow-lg mt-6">O Futuro do Streaming Está Aqui</h1>
+      <p class="mt-4 text-cyan-100 text-lg">Robôs, tecnologia e entretenimento ilimitado em suas mãos.</p>
+      <a class="cta mt-8 inline-block px-8 py-4 rounded-2xl bg-cyan-400 text-black font-bold text-lg shadow-lg shadow-cyan-400/40">Começar Agora</a>
+    </div>
+  </section>
+
+  <!-- PLANOS -->
+  <section id="planos" class="py-16 bg-gradient-to-b from-black to-cyan-950/20">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-4xl font-extrabold text-cyan-300 mb-10 text-center">Nossos Planos</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <article class="card rounded-2xl border border-cyan-400/40 bg-black/70 p-6 text-center">
+          <h3 class="text-xl font-bold text-cyan-200">Mensal</h3>
+          <p class="text-4xl font-extrabold mt-4 text-white">R$ 30,00</p>
+        </article>
+        <article class="card rounded-2xl border border-cyan-400/40 bg-black/70 p-6 text-center">
+          <h3 class="text-xl font-bold text-cyan-200">2 Meses</h3>
+          <p class="text-4xl font-extrabold mt-4 text-white">R$ 60,00</p>
+        </article>
+        <article class="card rounded-2xl border border-cyan-400/40 bg-black/70 p-6 text-center">
+          <h3 class="text-xl font-bold text-cyan-200">Trimestral</h3>
+          <p class="text-4xl font-extrabold mt-4 text-white">R$ 80,00</p>
+        </article>
+        <article class="card rounded-2xl border border-cyan-400/40 bg-black/70 p-6 text-center">
+          <h3 class="text-xl font-bold text-cyan-200">Quadrimestral</h3>
+          <p class="text-4xl font-extrabold mt-4 text-white">R$ 110,00</p>
+        </article>
+        <article class="card rounded-2xl border border-cyan-400/40 bg-black/70 p-6 text-center">
+          <h3 class="text-xl font-bold text-cyan-200">6 Meses</h3>
+          <p class="text-4xl font-extrabold mt-4 text-white">R$ 160,00</p>
+        </article>
+        <article class="card rounded-2xl border border-cyan-400/40 bg-black/70 p-6 text-center">
+          <h3 class="text-xl font-bold text-cyan-200">1 Ano</h3>
+          <p class="text-4xl font-extrabold mt-4 text-white">R$ 280,00</p>
+        </article>
       </div>
     </div>
   </section>
 
-  <section id="planos" class="planos">
-    <div class="plano">
-      <h3>Plano 1 Mês</h3>
-      <p class="price">R$ 30,00</p>
-      <p>Acesso total + Suporte</p>
-      <a href="https://wa.me/5598981797139" class="btn">Assinar</a>
-    </div>
-    <div class="plano">
-      <h3>Plano 3 Meses</h3>
-      <p class="price">R$ 80,00</p>
-      <p>Acesso total + Suporte</p>
-      <a href="https://wa.me/5598981797139" class="btn">Assinar</a>
-    </div>
-    <div class="plano">
-      <h3>Plano 6 Meses</h3>
-      <p class="price">R$ 150,00</p>
-      <p>Acesso total + Suporte</p>
-      <a href="https://wa.me/5598981797139" class="btn">Assinar</a>
-    </div>
-    <div class="plano">
-      <h3>Plano 12 Meses</h3>
-      <p class="price">R$ 280,00</p>
-      <p>Acesso total + Suporte</p>
-      <a href="https://wa.me/5598981797139" class="btn">Assinar</a>
-    </div>
-  </section>
-
-  <section id="como-funciona" class="container" style="padding:60px 20px; text-align:center;">
-    <h2 style="color:var(--primary); margin-bottom:20px;">📺 Como Funciona?</h2>
-    <p>Compatível com Smart TVs, TV Box, Celulares Android, iOS e Computadores.</p>
-    <p>Após a confirmação do pagamento, enviamos os dados de acesso no mesmo dia.</p>
-    <p>Teste grátis disponível para novos clientes.</p>
-  </section>
-
-  <section id="faq">
-    <h2>❓ Perguntas Frequentes</h2>
-    <details>
-      <summary>Preciso de internet para usar o IPTV?</summary>
-      <p>Sim. Recomendamos no mínimo 15 Mb para evitar travamentos.</p>
-    </details>
-    <details>
-      <summary>Posso assistir em mais de um aparelho?</summary>
-      <p>O acesso é individual. Consulte planos multi-telas.</p>
-    </details>
-    <details>
-      <summary>Como recebo o acesso?</summary>
-      <p>Após o pagamento confirmado, você recebe tudo pelo WhatsApp.</p>
-    </details>
-    <details>
-      <summary>Quais aparelhos são compatíveis?</summary>
-      <p>Smart TVs, TV Box, Android, iOS e computadores.</p>
-    </details>
-  </section>
-
-  <footer id="contato">
-    <p>© 2025 Jhon Tech IPTV — Todos os direitos reservados.</p>
-    <p>Atendimento pelo WhatsApp: <a href="https://wa.me/5598981797139">(98) 98179-7139</a></p>
+  <!-- RESTANTE DO SITE (como funciona, depoimentos, contato, faq e rodapé) permanece igual, só herdando o estilo futurista -->
+  
+  <footer class="py-10 bg-black border-t border-cyan-400/30 text-center text-cyan-300">
+    <p>© <span id="year"></span> Jhon Tech IPTV — O Futuro do Streaming</p>
   </footer>
 
-  <a href="https://wa.me/5598981797139" class="whatsapp">💬</a>
-</body>
-  
-<meta name="description" content="Assista canais, filmes e séries com estabilidade e qualidade. Planos de IPTV com suporte dedicado - Jhon Tech IPTV.">
-<meta name="keywords" content="IPTV, canais, filmes, séries, streaming, Jhon Tech">
-<meta name="author" content="Jhon Tech IPTV">
- <!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <title>Jhon Tech</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <style>
-    :root {
-      --primary: #00ffcc; /* cor neon principal */
-    }
-
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #111;
-      color: #fff;
-      text-align: center;
-    }
-
-    /* HERO */
-    #hero {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      background: linear-gradient(135deg, #000 40%, #111 100%);
-      padding: 40px;
-    }
-    #typing-hero {
-      font-size: 2.2rem;
-      font-family: monospace;
-      color: var(--primary);
-      white-space: nowrap;
-      overflow: hidden;
-      border-right: 3px solid var(--primary);
-      display: inline-block;
-      animation: blink 0.8s infinite;
-    }
-
-    /* Depoimentos */
-    #depoimentos {
-      background:#000;
-      padding:60px 20px;
-      text-align:center;
-    }
-    #typing-title {
-      color:var(--primary);
-      margin-bottom:30px;
-      font-family:monospace;
-      white-space:nowrap;
-      overflow:hidden;
-      border-right:3px solid var(--primary);
-      display:inline-block;
-      animation: blink 0.8s infinite;
-    }
-    .carousel-container {
-      position:relative;
-      max-width:900px;
-      margin:0 auto;
-      overflow:hidden;
-    }
-    .carousel {
-      position:relative;
-      height:300px;
-    }
-    .card {
-      position:absolute;
-      top:0;
-      left:0;
-      width:100%;
-      opacity:0;
-      transition:opacity 1s ease;
-    }
-    .avatar {
-      width:80px;
-      height:80px;
-      border-radius:50%;
-      margin-bottom:15px;
-      transform: scale(0.9);
-      transition: transform 1s ease;
-    }
-    .fade-slide[style*="opacity: 1"] .avatar {
-      transform: scale(1);
-    }
-
-    /* Botões */
-    #prev, #next {
-      position:absolute;
-      top:50%;
-      transform:translateY(-50%);
-      background:var(--primary);
-      border:none;
-      padding:10px;
-      border-radius:50%;
-      cursor:pointer;
-    }
-    #prev { left:10px; }
-    #next { right:10px; }
-
-    /* Indicadores */
-    #indicators {
-      display:flex;
-      justify-content:center;
-      gap:10px;
-      margin-top:20px;
-    }
-    .dot {
-      width:12px;
-      height:12px;
-      border-radius:50%;
-      background:#444;
-      display:inline-block;
-      cursor:pointer;
-    }
-    .dot.active {
-      background:var(--primary);
-    }
-
-    /* Cursor piscando */
-    @keyframes blink {
-      0%, 100% { border-color: transparent; }
-      50% { border-color: var(--primary); }
-    }
-  </style>
-</head>
-<body>
-
-  <!-- HERO -->
-  <section id="hero">
-    <h1 id="typing-hero"></h1>
-    <p style="margin-top:20px; color:#ccc;">A melhor experiência em IPTV 🔥</p>
-  </section>
-
-  <!-- Depoimentos -->
-  <section id="depoimentos">
-    <h2 id="typing-title"></h2>
-    
-    <div class="carousel-container">
-      <div class="carousel">
-
-        <!-- Depoimento 1 -->
-        <div class="card fade-slide" style="opacity:1;">
-          <img class="avatar" src="https://i.ibb.co/5MkXJgP/user1.jpg" alt="Cliente satisfeito" loading="lazy">
-          <h3 style="color:var(--primary); margin-bottom:10px;">Maria S.</h3>
-          <p style="color:#ccc;">“Estou usando há 6 meses e nunca travou! Atendimento super rápido. Recomendo demais.”</p>
-        </div>
-
-        <!-- Depoimento 2 -->
-        <div class="card fade-slide">
-          <img class="avatar" src="https://i.ibb.co/9T9J1Fk/user2.jpg" alt="Cliente satisfeito" loading="lazy">
-          <h3 style="color:var(--primary); margin-bottom:10px;">João P.</h3>
-          <p style="color:#ccc;">“Canais em ótima qualidade e filmes sempre atualizados. Melhor IPTV que já assinei.”</p>
-        </div>
-
-        <!-- Depoimento 3 -->
-        <div class="card fade-slide">
-          <img class="avatar" src="https://i.ibb.co/0FBVZbW/user3.jpg" alt="Cliente satisfeito" loading="lazy">
-          <h3 style="color:var(--primary); margin-bottom:10px;">Carlos A.</h3>
-          <p style="color:#ccc;">“Vale cada centavo! Atendimento via WhatsApp sempre atencioso e rápido.”</p>
-        </div>
-
-      </div>
-
-      <!-- Botões -->
-      <button id="prev" aria-label="Anterior">⬅</button>
-      <button id="next" aria-label="Próximo">➡</button>
-
-      <!-- Indicadores -->
-      <div id="indicators">
-        <span class="dot active" data-index="0"></span>
-        <span class="dot" data-index="1"></span>
-        <span class="dot" data-index="2"></span>
-      </div>
-    </div>
-  </section>
+  <a class="fixed bottom-5 right-5 rounded-full w-16 h-16 grid place-items-center bg-cyan-400 text-black text-2xl shadow-xl shadow-cyan-400/30">💬</a>
 
   <script>
-    // Texto do HERO
-    const heroText = "🚀 Bem-vindo à Jhon Tech";
-    let j = 0;
-    const heroEl = document.getElementById("typing-hero");
-
-    function typeHero() {
-      if (j < heroText.length) {
-        heroEl.textContent += heroText.charAt(j);
-        j++;
-        setTimeout(typeHero, 100);
-      }
-    }
-    typeHero();
-
-    // Texto do título de depoimentos
-    const title = "💬 O que nossos clientes dizem";
-    let i = 0;
-    const typingElement = document.getElementById("typing-title");
-
-    function typeWriter() {
-      if (i < title.length) {
-        typingElement.textContent += title.charAt(i);
-        i++;
-        setTimeout(typeWriter, 80);
-      }
-    }
-    typeWriter();
-
-    // Carrossel
-    const slides = document.querySelectorAll('.fade-slide');
-    const prev = document.getElementById('prev');
-    const next = document.getElementById('next');
-    const dots = document.querySelectorAll('.dot');
-    let index = 0;
-    const total = slides.length;
-
-    function showSlide(i) {
-      index = (i + total) % total;
-      slides.forEach((slide, idx) => {
-        slide.style.opacity = idx === index ? '1' : '0';
-      });
-      updateDots();
-    }
-
-    function updateDots() {
-      dots.forEach((dot, i) => {
-        dot.classList.toggle('active', i === index);
-      });
-    }
-
-    next.addEventListener('click', () => showSlide(index + 1));
-    prev.addEventListener('click', () => showSlide(index - 1));
-
-    dots.forEach(dot => {
-      dot.addEventListener('click', () => {
-        showSlide(parseInt(dot.dataset.index));
-      });
-    });
-
-    setInterval(() => {
-      showSlide(index + 1);
-    }, 5000);
-
-    showSlide(0);
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
-

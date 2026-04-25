@@ -15,7 +15,30 @@
       backdrop-filter: blur(12px);
     }
     .neon-text {
-      text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #00f6ff;
+  color: #0ff;
+  text-shadow:
+    0 0 5px #0ff,
+    0 0 10px #0ff,
+    0 0 20px #0ff,
+    0 0 40px #00f6ff;
+  animation: neonPulse 1.5s infinite alternate;
+}
+
+@keyframes neonPulse {
+  from {
+    text-shadow:
+      0 0 5px #0ff,
+      0 0 10px #0ff,
+      0 0 20px #0ff;
+  }
+  to {
+    text-shadow:
+      0 0 10px #0ff,
+      0 0 20px #0ff,
+      0 0 40px #00f6ff,
+      0 0 80px #00f6ff;
+  }
+
     }
     .glass {
       background: rgba(255, 255, 255, 0.1);
